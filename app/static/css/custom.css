@@ -1,0 +1,42 @@
+
+.h-100vh{
+    height:80vh;
+}
+.login-btn{
+    background: #181717;
+    color: #fff;
+}
+ 
+.accordiontab{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    position: relative;
+}
+
+.active-accordion{
+    color:black !important;
+}
+.accordion-panel{
+    background: #fff;
+    max-height: 0px;
+    
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+ .activeclassView{
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: none !important;
+}
+
+.display-none{
+    display: none;
+}
+
+.bg-btn{
+    background: blue !important;
+    color: #fff !important;
+}

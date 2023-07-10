@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/nav.css">
+      <link rel="stylesheet" href="/static/css.css">
+      <link href="https://studydaddy.com/ra.min.css?v1.23" rel="stylesheet">
+   </head>
+   <body>
+      <style>
+         .Weeks:nth-child(1) {padding:10px 0 20px;}
+         .dayOfWeek {display:inline-block;width:14%; text-align: center;}
+         .dayOfWeek a {display: block; max-width:90%; width:100%;padding: 20px 0;}
+         .WeekName {font-size:18px;
+         font-weight: 600;}
+         span.dayOfWeek.not_current_month { padding: 20px 0;color: #999999;}
+         .calendar { display: block; max-width: 800px; margin: 0 auto; border: 1px solid #0fb8ff; padding: 10px 20px; border-radius: 6px; }
+         .month_block a { display: block; width: 80%; margin: 0 auto; padding: 5px 0; }
+         .dayOfWeek a:hover {text-decoration: underline;}
+         .breadcrumbs { font-size: 16px; }
+         .breadcrumbs__item:after { color: #999; font-size: 16px; padding: 0px 10px; }
+         .breadcrumbs>span:nth-last-child(1) .breadcrumbs__item:after {display:none;}
+         .addPadding {padding: 20px 0;}
+         @media (max-width:766px) {
+         .breadcrumbs {
+         margin-bottom: 30px;
+         }
+         .WeekName {
+         font-size: 14px;
+         }
+         }
+      </style>
+      <style>
+         header{
+         background: #fff !important;
+         margin-bottom:400px;
+         }
+      </style>
+      <div class="">
+         <header class="b">
+            <nav>
+               <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+               <div class="navigation-bar-wrapper">
+                  <input type="checkbox"  name="openandclose" id="openandclose">
+                  <div class="portfolio-logo logo">
+                     <a href="/">
+                        <h1>Freelance Bay</h1>
+                     </a>
+                  </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                  <div class="mobile" style="display: flex;gap:10px;">
+                     <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                     <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                           <div class="menu"></div>
+                           <div class="menu mid"></div>
+                           <div class="menu"></div>
+                        </div>
+                     </label>
+                     <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </header>
+      </div>
+      <!-- wrapper -->
+      <div id="page" class="inner">
+         <div id="main" class="container">
+            <article class="article js-content">
+               <!-- content -->
+               <div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                     <a class="breadcrumbs__item" href="../index.html" title="StudyDaddy" itemprop="item"><span itemprop="name" class="breadcrumbs__link">StudyDaddy</span></a>                
+                     <meta itemprop="position" content="1">
+                  </span>
+                  <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                     <a class="breadcrumbs__item" href="../sitemap.html" title="Homework Archive" itemprop="item"><span itemprop="name" class="breadcrumbs__link">Homework Archive</span></a>                
+                     <meta itemprop="position" content="2">
+                  </span>
+                  <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                     <a class="breadcrumbs__item" href="./2023/" title="2023" itemprop="item"><span itemprop="name" class="breadcrumbs__link">2023</span></a>                
+                     <meta itemprop="position" content="3">
+                  </span>
+               </div>
+               <h1 class="page-title">Homework Archive - February 2023:</h1>
+               <div class="calendar">
+                  <div class="Weeks">
+                     <span class="dayOfWeek WeekName">Sun</span><span class="dayOfWeek WeekName">Mon</span><span class="dayOfWeek WeekName">Tue</span><span class="dayOfWeek WeekName">Wed</span><span class="dayOfWeek WeekName">Thu</span><span class="dayOfWeek WeekName">Fri</span><span class="dayOfWeek WeekName">Sat</span>                                    
+                  </div>
+                  <div class="Weeks">
+                     <span class="dayOfWeek addPadding not_current_month">29</span><span class="dayOfWeek addPadding not_current_month">30</span><span class="dayOfWeek addPadding not_current_month">31</span><span class="dayOfWeek"><a href="./02.html">1</a></span><span class="dayOfWeek"><a href="./02.html">2</a></span><span class="dayOfWeek"><a href="./02.html">3</a></span><span class="dayOfWeek"><a href="./02.html">4</a></span>
+                  </div>
+                  <div class="Weeks"><span class="dayOfWeek"><a href="./02.html">5</a></span><span class="dayOfWeek"><a href="./02.html">6</a></span><span class="dayOfWeek"><a href="./02.html">7</a></span><span class="dayOfWeek"><a href="./02.html">8</a></span><span class="dayOfWeek"><a href="./02.html">9</a></span><span class="dayOfWeek"><a href="./02.html">10</a></span><span class="dayOfWeek"><a href="./02.html">11</a></span></div>
+                  <div class="Weeks"><span class="dayOfWeek"><a href="./02.html">12</a></span><span class="dayOfWeek"><a href="./02.html">13</a></span><span class="dayOfWeek"><a href="./02.html">14</a></span><span class="dayOfWeek"><a href="./02.html">15</a></span><span class="dayOfWeek"><a href="./02.html">16</a></span><span class="dayOfWeek"><a href="./02.html">17</a></span><span class="dayOfWeek"><a href="./02.html">18</a></span></div>
+                  <div class="Weeks"><span class="dayOfWeek"><a href="./02.html">19</a></span><span class="dayOfWeek"><a href="./02.html">20</a></span><span class="dayOfWeek"><a href="./02.html">21</a></span><span class="dayOfWeek"><a href="./02.html">22</a></span><span class="dayOfWeek"><a href="./02.html">23</a></span><span class="dayOfWeek"><a href="./02.html">24</a></span><span class="dayOfWeek"><a href="./02.html">25</a></span></div>
+                  <div class="Weeks"><span class="dayOfWeek"><a href="./02.html">26</a></span><span class="dayOfWeek"><a href="./02.html">27</a></span><span class="dayOfWeek"><a href="./02.html">28</a></span>                    <span class="dayOfWeek not_current_month">1</span><span class="dayOfWeek not_current_month">2</span><span class="dayOfWeek not_current_month">3</span><span class="dayOfWeek not_current_month">4</span>                </div>
+               </div>
+            </article>
+         </div>
+      </div>
+      <style>
+         .year-block {
+         display: block;
+         text-align: center;
+         }
+         .year-block h2 {font-weight: 800; margin: 25px 0 5px; padding:0 10px;}
+         .year-block h2 a {padding: 0 10px; background: #fff; font-size:24px;
+         line-height: 24px;}
+         .year-block h2:after { content: ''; background: #ccc; width: 100%; height: 1px; display: block; margin: -12px 0 20px; }
+         .month_block {
+         display: inline-block;
+         width: 80px;
+         }
+         .month_block a {
+         display: block;width:90%;margin:0 auto; padding: 10px 0px;
+         }
+         .breadcrumbs { font-size: 16px; }
+         .breadcrumbs__item:after { color: #999; font-size: 16px; padding: 0px 10px; }
+         .breadcrumbs>span:nth-last-child(1) .breadcrumbs__item:after {display:none;}
+         @media (max-width:1024px) {
+         .month_block a, span.month_block.non-active {padding:15px 0; margin:5px 0;}
+         .month_block {
+         display: inline-block;
+         min-width: 80px;
+         width:16%;
+         }
+         }
+         @media (max-width:766px) {
+         .breadcrumbs {
+         margin-bottom: 30px;
+         }
+         }
+         @media (max-width:540px) {
+         .month_block {width:25%;}
+         }
+      </style>
+      <footer id="footer" class="footer  js-footer" itemscope itemtype="http://schema.org/SiteNavigationElement">
+         <div class="container">
+            <nav class="nav">
+               <ul class="footer__links ul-reset">
+                  <li class="footer__link"><a href="/homework/answers" title="Homework Answers">Homework Answers</a></li>
+                  <li class="footer__link"><a href="/ask/a/question" title="Ask a Question">Ask a Question</a></li>
+                  <li class="footer__link"><a href="/become/a/tutor" title="Become a tutor">Become a tutor</a></li>
+                  <li class="footer__link"><a href="/faqs" title="FAQ" itemprop="url">FAQ</a></li>
+                  <li class="footer__link"><a href="/contact/us" title="Contact Us" itemprop="url">Contact Us</a></li>
+                  <li class="footer__link"><a href="/privacy/policies" title="Privacy Policy" itemprop="url">Privacy Policy</a></li>
+                  <li class="footer__link"><a href="/dmca/notice" title="DMCA" itemprop="url">DMCA</a></li>
+                  <li class="footer__link"><a href="/terms" title="Terms of Use" itemprop="url">Terms of Use</a></li>
+                  <li class="footer__link_no_border"><a href="/site/map" title="Sitemap" itemprop="url">Sitemap</a></li>
+               </ul>
+            </nav>
+            <div  class="footer__copyright copyright">Copyright &copy; 2023 <a itemprop="url"  href="">StudyDaddy.com</a></div>
+            <div class="copyright copyright_company">
+               Worbert Limited -  All right reserved.<br>
+               20 Christou Tsiarta Elma 2, 22, 1077, Nicosia, Cyprus
+            </div>
+         </div>
+      </footer>
+      <div class="mo-signup"></div>
+      <script src="/static/js/jQuery.js"></script>
+      <script src="/static/js/freelance.js"></script>
+      <script>
+         function toogleSearch()
+         {
+             $( ".search" ).toggleClass( "searchtransition" )
+             $( ".search-mobile" ).toggleClass( "searchtransition" )
+         
+             
+         }
+         
+         window.onscroll = ()=>{
+         
+             
+             if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+             {
+                 $("header").addClass("headerBg")
+             }
+         
+             else
+             {
+                 $("header").removeClass("headerBg")
+         
+             }
+           }
+           if(screen.width > 888)
+           {
+               $(".mobile").addClass("hide-m")
+           }
+           else
+           {
+               $(".mobile").removeClass("hide-m")
+         
+           }
+         
+           setInterval(()=>{
+             if(screen.width > 888)
+             {
+                 $(".mobile").addClass("hide-m")
+             }
+             else
+             {
+                 $(".mobile").removeClass("hide-m")
+         
+             }
+           }, 1000)
+      </script>
+   </body>
+</html>

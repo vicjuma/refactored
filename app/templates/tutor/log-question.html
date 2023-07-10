@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="/static/css/tutor.css">
+    <link rel="stylesheet" href="/static/css/send_prop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="mo-signup"></div>    
+  <div class="modal-outer js-modal">
+    <div class="modal-fade js-modal-close"></div>
+
+    <div class="modal-inner text-center">
+        <span style="float: right; cursor:pointer;" class="modal-close js-modal-close">&times;</span>
+
+        <div class="modal-title">Report Spam</div>
+
+        <form class="modal__text" action="" method="post">
+          <div class="modal-report__text p-15-0">
+            <p class="f-s-18">Please notify us if this question is <span class="modal-report__text-accent" style="color: red;">spam</span>:</p>
+          </div>
+          <div class="p-10-0 p-b-20 custom-select modal-report__select">
+            <select name="reason">
+              <option value="1">It promotes competing sites</option>
+              <option value="2">It is SEO spam activity</option>
+              <option value="3">It violates site policy</option>
+              <option value="4">It is not related to homework or homework help</option>
+            </select>      
+          </div>
+        <button type="submit" class="button p-10-20 b-n button_color_blue button_size_medium" style="background: purple; color:#fff;">Report</button>        
+      </form>    
+    </div>
+  </div>
+
+  <!-- ON SUCCESSFULL REPRORT ALERT AND ON POST PROPOSAL -->
+<!--  
+  <div class="modal-outer js-alert-modal" style="display: block">
+    <div class="modal-fade js-alert-modal-close"></div>
+
+    <div class="modal-inner">
+        <span class="modal-close js-alert-modal-close"></span>
+
+        <div class="modal-title">Well done!</div>
+
+                    <span class="modal__success-icon">
+                <i class="fa fa-check"></i>
+            </span>
+        
+        <div class="modal__success-text text-center">
+            <div>The report has been accepted! Thank you!</div>
+        </div>
+    </div>
+</div> -->
+    <div class="mo-signup"></div>    
+
+    <div class="container">
+      {% include 'partials/tuts_header.html' %}
+    </div>
+    <div class="p-40 b-b"></div>
+
+    <div style="z-index: 1000 !important;" class="prr question-list mmm page-div top_text  w-p-96 m-a">
+        <div class=" p-b-40 col-11 bgwhite m-a p-t-20">
+            <div class="display-flex-normal">
+                <div class="">
+                    <div class="p-17-20 ">
+                        <div class="">
+                          <a href="" class="inline-link">My answers </a>/ <a class="inline-link" href="" style="color: purple;">Business & Finance</a>
+                        </div>
+                       
+
+                        <div class="head">
+                            <div class="">
+                                <div class="p-t-6 p-b-10">
+                                    <p>
+                                      <span class="status">Deadline: 2023-06-27 7:06 PM</span>
+                                      <span class="status">Posted by: Student320506</span>
+                                      <span class="status">Price: $15.00</span>
+                                    </p>
+                                  </div>
+                            </div>
+                            <div class="date">
+                              <a id="reportSpam" style="color: red; text-decoration: underline;" class="personal-question__top-spam js-spam-link" href="javascript:;">Report spam</a>
+                              
+
+                            </div>
+                        </div>
+                        <style>
+                          #showMoreBtn
+                          {
+                           color: #2b6dad;
+                           border: none;
+                           background: none;
+                           cursor: pointer;
+                           padding: 15px 0;
+                           background: linear-gradient(rgba(212, 212, 212, 0.1), rgba(223, 223, 223, 0.2));
+                          }
+                         </style>                       
+                         <div id="content" style="height: 200px ; overflow: hidden; transition: all 0.3s">
+                            
+                            <div class="p-20-0">
+                              <div class="question-body">
+                                <h1>{{ task.title }}</h1>
+                              </div>
+
+                              <p class="p-10-0">
+                                {{ task.content | safe }}
+                              </p>
+                            </div>
+                         </div>
+                         <!-- button id="showMoreBtn" class="b-n" style="background: none !important;">Show More>></button> -->
+                         {% if not bid %}
+                          <button class="p-5-20 b-n bg-inherit" id="sendProposal" style="border: 2px solid green;">
+                              <i class="fa fa-gavel"></i> SEND YOUR PROPOSAL TO THE STUDENT
+                          </button> 
+
+                          <!-- Send proposal -->
+                          <div class="proposal-div" style="transition:0.5s ease !important;">
+                            <div class="proposal-box">
+                                <div class="text-area">
+                                  <form action="{{ url_for('tutorSingleTask', task_id=task.id) }}" id="proposalForm" class="m-10-0" method="post">
+                                      <style>
+                                        textarea{
+                                          resize: none;
+                                          width: 100%;
+                                        }
+                                      </style>
+                                      <input type="text" name="formType" value="formTwo" hidden>
+                                      <div class="p-10-0" style="display: flex; justify-content:space-between">
+                                        <p class="f-s-14 desc-msg">Message :</p>
+
+                                        <div class="error-desc"><span class="f-s-12">Description cannot be blank</span></div>
+                                      </div>
+
+                                      <textarea name="message" id="proposal_description"cols="30" class="p-10" rows="10"></textarea>
+                                      <div class="p-10-0 ">
+                                        
+                                        <div class="" style="display: flex; justify-content:space-between">
+                                          <p class="f-s-14 proposalPricems">Proposal, USD:<span class="fade f-s-11 proposalPricems">(do not request prepayment if you are unable to post the accurate answer within the deadline)</span></p>
+
+                                          <div class="error-price"><span class="f-s-12">Price cannot be blank</span></div>
+                                        </div>
+                                        <div class="b-one m-t-10 display-flex-normal p-2 proposalPriceb" id="" style="max-width: 250px; align-items:center;">
+                                        <span class="p-0-10"> $</span>
+                                        <input type="text" min="10" class="b-n p-5-10 outline-none" name="price" id="proposalPrice">
+                                        </div>
+                                      </div>
+                                      <div class="">
+                                        <div class=" " style="">
+                                        <div class="display-flex-normal items-center">
+                                          <input  type="checkbox" name="" id="sub" class="w-25 h-25 m-r-10" id=""><label for="sub" class="f-s-14"> I will submit my work on the due date</label>
+                                        </div>
+                                          <div class="">
+                                            <div class="float-right display-flex-normal items-center">
+                                              <!-- <p class="f-s-18 p-r-10" style="color: blue; text-decoration:underline;" id="cancelButton">Cancel</p> -->
+                                              <button id="proposalFormbutton" style="color: purple; min-width:220px; border:1px solid purple" class="b-n f-w-900 b-one p-10-30 b-r-5 bg-inherit" type="submit">POST PROPOSAL</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </form>
+                                </div>
+                            </div>
+                          </div>
+                         {% else %}
+                         
+                         <div id="w0" class="card">
+                          <div class="card_proposal_item" id="proposal-583427">
+                             <div class="body">
+                                <span class="js-user-opponent" data-user-id="118779"></span>
+                                <!-- answer buttons -->
+                                <div class="btns btns_custom js-control-btn" style="display: block;">
+                                   <span class="btn btn-green js-chat-proposal js-online-mark-118779 chat__button_state_offline" data-proposal-id="583427"><i class="fa fa-comments"></i> Chat</span>
+                                   <span class="btn btn-blue js-edit-proposal"><i class="fa fa-pencil"></i>&nbsp;Edit proposal</span>
+                                </div>
+                                <div class="proposal__chat-wrapper">
+                                   <div class="js-answer-block">
+                                      <form id="w2" class="form post-answer__form" action="" method="post">
+                                         <div class="form__row field-proposalform-description required">
+                                            <p class="form__label">Message:</p>
+                                            <textarea id="proposalform-description" class="full-width js-form-description" name="ProposalForm[description]" rows="10">Hello. I am Prof Nandy, an expert tutor. I am committed to giving high quality and plagiarism-free work. Specifically, I am capable of delivering an A+ paper. Please consider my proposal. Thank you</textarea>
+                                            <p class="help-block help-block-error"></p>
+                                         </div>
+                                         <div class="form__row">
+                                            <div class="question-form__row_type_coast field-proposalform-price required">
+                                               <p class="form__label">Proposal, USD: <span class="form__label-caption form__label-caption_type_small">(do not request prepayment if you are unable to post the accurate answer within the deadline)</span></p>
+                                               <p class="help-block help-block-error"></p>
+                                               <input type="text" id="proposalform-price" class="js-input-price" name="ProposalForm[price]" value="15.00">
+                                            </div>
+                                         </div>
+                                         <div class="form__row form__footer_type_flex">
+                                            <div class="field-prop-5905 required">
+                                               <input type="hidden" name="ProposalForm[isSigned]" value="0"><input type="checkbox" id="prop-5905" name="ProposalForm[isSigned]" value="1" checked=""><label for="prop-5905" class="error-caption">I will post answer within the deadline</label>
+                                            </div>
+                                            <p></p>
+                                            <p>
+                                               <a class="js-cancel-form-btn" href="javascript:;">Cancel</a> 
+                                               <button type="submit" class="button button_bordered_orange button_long_slim">Update</button>    
+                                            </p>
+                                         </div>
+                                      </form>
+                                   </div>
+                                </div>
+                                <div class="chat chat_type_visible proposal__chat js-chat-block js-control-block js-chat-cont-583427" data-proposal-id="583427" style="display: block;">
+                                   <div class="chat__messages js-chat-container mCustomScrollbar _mCS_1 mCS_no_scrollbar">
+                                      <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
+                                         <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                                            <div id="w4" class="js-proposal-chat-thread" data-proposal-id="583427">
+                                               <div class="chat__message js-msg-cont chat__message_type_operator" data-is-new="0" data-msg-id="1714757">
+                                                  <div class="answer__avatar chat__avatar chat__avatar_type_operator">
+                                                     <img src="/uploads/photos/g/v/e/119_119_pyuxepkfpc0zl9uc.jpg" alt="ProfNandy" class="mCS_img_loaded" width="32" height="32">
+                                                  </div>
+                                                  <div class="chat__text chat__text_type_user">
+                                                     <p>Hello. I am Prof Nandy, an expert tutor. I am committed to giving high quality and plagiarism-free work. Specifically, I am capable of delivering an A+ paper. Please consider my proposal. Thank you</p>
+                                                     <time class="chat__time">09 July 2023 9:38 PM            <span class="js-read-msg-mark-1714757">, Read</span>
+                                                     </time>
+                                                  </div>
+                                               </div>
+                                            </div>
+                                            <div class="chat__message chat__typing-notification js-typing-status-583427">
+                                               <i class="fa fa-pencil chat__typing-icon"></i>&nbsp;<span class="chat__typing-text">User is typing...</span>
+                                            </div>
+                                         </div>
+                                         <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical">
+                                            <div class="mCSB_draggerContainer">
+                                               <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;">
+                                                  <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                                               </div>
+                                               <div class="mCSB_draggerRail"></div>
+                                            </div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                   <div class="chat__answer-area">
+                                      <form id="mf583427" class="js-chat-form" action="/question/assessment-description-the-assignment-will-be-used-to-develop-a-written-implemen-2" method="post">
+                                         <input type="hidden" name="_csrf" value="WHFNMXRhdHhvBBd1IDcGJ289IFssUwIMNx97cB0LOhApPSgcHgcuIg==">        
+                                         <div class=" field-messageform-proposalid required">
+                                            <input type="hidden" id="messageform-proposalid" class="form-control" name="MessageForm[proposalId]" value="583427">
+                                         </div>
+                                         <div class=" field-messageform-questionid required">
+                                            <input type="hidden" id="messageform-questionid" class="form-control" name="MessageForm[questionId]" value="593225">
+                                         </div>
+                                         <div class="form-group field-messageform-body required">
+                                            <textarea id="messageform-body" class="chat__answer-textarea js-message-chat-input" name="MessageForm[body]" rows="1" placeholder="Type your message here..." data-model-id="583427" data-proposal-id="583427" data-from-user-id="193865" data-to-user-id="118779"></textarea>
+                                         </div>
+                                         <span class="chat__send-button js-chat-send-btn" data-model-id="583427">Send <i class="fa fa-paper-plane"></i></span>
+                                      </form>
+                                   </div>
+                                </div>
+                             </div>
+                             <p class="personal-answer__chat-attention personal-answer__chat-attention_type_visible js-chat-attention">
+                                Please be informed that asking for customers' personal data or providing your data (emails / phones / other contacts) is not allowed according to our terms.
+                                If you do so, your account can be terminated without any possibility to recover it in future.
+                             </p>
+                          </div>
+                          {% endif %}
+                       </div>
+                       
+                         <script>
+                           const contentElement = document.getElementById("content");
+                           const showMoreBtn = document.getElementById("showMoreBtn");
+                           const maxHeight = 200; 
+                           
+                           if (contentElement.scrollHeight > maxHeight) {
+                             showMoreBtn.style.display = "block";
+                           }
+                           showMoreBtn.addEventListener("click", function() {
+                             if (contentElement.style.height === "auto") {
+                               contentElement.style.height = maxHeight + "px";
+                               showMoreBtn.textContent = "Show More >>";
+                             } else {
+                               contentElement.style.height = "auto";
+                               showMoreBtn.textContent = "Hide <<";
+                             }
+                           });
+                         </script>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="p-t-0">
+      {% include 'partials/footer.html' %}
+    </div>
+
+    
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script src="/static/js/send_prop2.js"></script>
+
+</body>
+</html>

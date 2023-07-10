@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/c/css/style.css">
+    <link rel="stylesheet" href="/static/c/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    header
+{
+    position:fixed !important;
+    max-width:100%;
+    width:100%;
+    color:var(--white);
+    transition:all .5s;
+    z-index:1000000;
+}
+.logo a
+{
+    color: white;
+}
+.headerBg .logo a
+{
+    color: rgb(24, 24, 24);
+}
+</style>
+<body>
+
+
+    <div class="mo-signup"></div>    
+    <style>
+        header{
+
+            margin-bottom:400px;
+        }
+        
+    </style> 
+    
+    <div class="cta" style="min-height: 120vh;">
+        <header class="">
+            <nav>
+                <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+                <div class="navigation-bar-wrapper">
+                    <input type="checkbox"  name="openandclose" id="openandclose">
+                    <div class="portfolio-logo logo">
+                        <a href="/">
+                            <h1>Freelance Bay</h1>
+                        </a>
+                    </div>
+                    {% if user %}
+                    {% include 'partials/authenticated.html' %} 
+                 {% else %}
+                    {% include 'partials/anonymous.html' %} 
+                 {% endif %}
+                    
+                    
+                    <div class="mobile" style="display: flex;gap:10px;">
+                        <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                        <label id="open" for="openandclose" class="p-l-10" >
+                            <div class="">
+                                <div class="menu"></div>
+                                <div class="menu mid"></div>
+                                <div class="menu"></div>
+                            </div>
+                        </label>
+
+                        <div class="search-mobile b-r-10 ">
+                            <input class="p-l-10" type="text" placeholder="Search...">
+                            <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </nav>
+        </header> 
+        <div class="p-t-100">
+            <div class="display-flex-normal  col-9 m-a text-center column">
+                <div class="box p-37-0">
+                    <h1 class="p-20-0 f-s-34 c-white">HIGH PAYING JOB <br>
+                        FOR FREELANCE WRITER</h1>
+                   
+                    <div class="button siteButton1 p-30-0">
+                        <button class="p-20-30 f-s-24" onclick="openModal()">BECOME A TUTOR</button>
+                    </div>
+                </div>
+                <div class="">
+                    <img class="w-450" src="/static/images/become_tutor_image.png" alt="">
+                </div>
+            </div>
+        </div>
+
+      
+        
+    </div> 
+
+
+    <div class="benefils p-b-100">
+        <div class="display-flex-normal column w-p-92 m-a">
+            <div class="after-center">
+                <h2 class="text-center">OUR BENEFITS</h2>
+            </div>
+            <div class="display-flex">
+                <div class="col-3 col-s-6 col-m-6">
+                    <div class="">
+                        <div style="    padding: 59px 20px 25px;" class="bs  m-30 b-t-r-r-30  b-t-l-r-30 b-b-r-r-30">
+                            <div class="dispay-flex  column text-center w-p-100">
+                                <div class="benefit-list w-p-100  h-100 text-center">
+                                    <img src="/static/images/t_icon1.png" class="w-80   " alt="">
+                                </div>
+                                <div class="benefit-title p-0">
+                                    <p class="head ">Millions of orders</p>
+                                </div>
+                                <div class="benefit-desc p-0- fade ">
+                                    <p>Create a profile with StudyDaddy in only one minute and get connected with millions of student.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-s-6 col-m-6">
+                    <div class="">
+                        <div style="    padding: 59px 20px 25px;" class="bs  m-30 b-t-r-r-30  b-t-l-r-30 b-b-r-r-30">
+                            <div class="dispay-flex  column text-center w-p-100">
+                                <div class="benefit-list w-p-100  h-100 text-center">
+                                    <img src="/static/images/t_icon2.png" class="w-80   " alt="">
+                                </div>
+                                <div class="benefit-title p-0">
+                                    <p class="head ">Choose Your Subject
+                                       </p>
+                                </div>
+                                <div class="benefit-desc p-0- fade ">
+                                    <p>Find the perfect fit for your abilities and experience by choosing from a variety of study fields.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-s-6 col-m-6">
+                    <div class="">
+                        <div style="    padding: 59px 20px 25px;" class="bs  m-30 b-t-r-r-30  b-t-l-r-30 b-b-r-r-30">
+                            <div class="dispay-flex  column text-center w-p-100">
+                                <div class="benefit-list w-p-100  h-100 text-center">
+                                    <img src="/static/images/t_icon.png" class="w-60 " alt="">
+                                </div>
+                                <div class="benefit-title p-0">
+                                    <p class="head ">Guaranteed Payment</p>
+                                </div>
+                                <div class="benefit-desc p-0- fade ">
+                                    <p>
+                                        Register today and enjoy fast and on-time payments transferred directly to your PayPal account.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-s-6 col-m-6">
+                    <div class="">
+                        <div style="    padding: 59px 20px 25px;" class="bs  m-30 b-t-r-r-30  b-t-l-r-30 b-b-r-r-30">
+                            <div class="dispay-flex  column text-center w-p-100">
+                                <div class="benefit-list w-p-100  h-100 text-center">
+                                    <img src="/static/images/t_icon4.png" class="w-80  " alt="">
+                                </div>
+                                <div class="benefit-title p-0">
+                                    <p class="head ">Flexible schedule</p>
+                                </div>
+                                <div class="benefit-desc p-0- fade ">
+                                    <p>
+                                        Work from home or any other place in the world and set your own schedule convenient for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="update">
+        <div class="display-flex-normal column w-p-92 m-a">
+            <div class="after-center">
+                <h1 class="text-center">TOP 5 TUTORS</h1>
+            </div>
+            <div class="updates-box wrap display-flex">
+                <div class="update-wrap bs  b-t-r-r-30  b-t-l-r-30 b-b-r-r-30">
+                    <div class="items p-l-30 p-r-30 p-t-40 p-b-40">
+                        <table class="w-p-100">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Tutor</th>
+                                    <th>Rating</th>
+                                    <th>Tutorials</th>
+                                    <th>Earned</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="icon cursor-pointer m-l-10 b-t-r-r-50  b-t-l-r-50 b-b-r-r-50">
+                                            1
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="">Belina</a>
+                                    </td>
+                                    <td>
+                                        <div class="stars ">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            </div>
+                                    </td>
+                                    <td>0</td>
+                                    <td>
+                                        $69,247.95
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="icon cursor-pointer m-l-10 b-t-r-r-50  b-t-l-r-50 b-b-r-r-50">
+                                            2
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="">TenTutor</a>
+                                    </td>
+                                    <td>
+                                        <div class="stars ">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            </div>
+                                    </td>
+                                    <td>503</td>
+                                    <td>
+                                        $69,247.95
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="icon cursor-pointer m-l-10 b-t-r-r-50  b-t-l-r-50 b-b-r-r-50">
+                                            3
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="">DailyWriter</a>
+                                    </td>
+                                    <td>
+                                        <div class="stars ">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            </div>
+                                    </td>
+                                    <td>470</td>
+                                    <td>
+                                        $58,255.00
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="icon cursor-pointer m-l-10 b-t-r-r-50  b-t-l-r-50 b-b-r-r-50">
+                                            4
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="">EducatePro</a>
+                                    </td>
+                                    <td>
+                                        <div class="stars ">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            </div>
+                                    </td>
+                                    <td>616</td>
+                                    <td>
+                                        $52,126.00
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="icon cursor-pointer m-l-10 b-t-r-r-50  b-t-l-r-50 b-b-r-r-50">
+                                            5
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="">Writesen</a>
+                                    </td>
+                                    <td>
+                                        <div class="stars ">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            </div>
+                                    </td>
+                                    <td>493</td>
+                                    <td>
+                                        $48,625.00
+                                    </td>
+                                </tr>
+
+                                
+                            </tbody>
+                        </table>
+            
+                    </div>
+                </div>
+                <div class="update-wrap-out bs  b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 "></div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div class="online p-t-20">
+        <div class="p-50-0">
+            <div class="">
+                <div class="after-center text-center">
+                    <h2>OUR ONLINE TEACHING MODEL</h2>
+                </div>
+
+                <div class="col-7 m-a text-center">
+                    <p>Being an expert in a certain field of knowledge is a great opportunity for everyone who wants to make money. All that’s needed is to share your expertise with the world by becoming an online tutor with StudyDaddy.com. Our dedicated team of tutors enjoy high income by tutoring disciplines they love. Just imagine - you do what you are passionate about without even leaving your apartment! Freelance writing jobs is a perfect part-time job for professionals, teachers and even students who have the necessary credentials. Why don’t you join our team and help learners to improve their performance and understand your favorite subject better.</p>
+                </div>
+
+                <div class="col-7 m-a p-30-0">
+                    <h2 class="p-20-0 text-center">FEEL LIKE TRYING? IT IS EASY TO GET STARTED!</h2>
+                    <div class="bs" style="border-radius: 30px 30px 30px 0; ">
+                       <div class="p-20">
+                          <div class="list-div">
+                            <style>
+                                .list-div
+                                {
+                                    padding: 20px;
+                                }
+                                .list-div li{
+                                    padding: 5px;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 20px;
+                                }
+                                .list-div li span{
+                                    padding: 10px 15px;
+                                    color: white;
+                                    border-radius: 50%;
+                                    background: var(--background);
+                                }
+                            </style>
+                            <ul>
+                                <li> <span>1</span> Fill in an application form and get verified</li>
+                                <li> <span>2</span> Get yourself acquainted with the available questions
+                                </li>
+                                <li> <span>3</span> Give reasonable and clear answers
+                                </li>
+                                <li> <span>4</span> Get rated and enjoy your extra income
+                                </li>
+                            </ul>
+                           
+                          </div>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="col-7 text-center m-a">
+                    <p>We encourage tutors to give answers to as many questions as they are willing to. We do not set a mit on the quantity of questions you may handle whilst helping people learn. Being a freelance writer at StudyDaddy.com, you can earn more by using tricks listed below.
+
+                    </p>
+                </div>
+
+                <div class="col-7 m-a p-30-0">
+                    <h2 class="p-20-0 text-center">HOW TO EARN MORE!</h2>
+                    <div class="bs" style="border-radius: 30px 30px 30px 0; ">
+                       <div class="p-20">
+                          <div class="list-div">
+                            <style>
+                                .list-div
+                                {
+                                    padding: 20px;
+                                }
+                                .list-div li{
+                                    padding: 5px;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 20px;
+                                }
+                                .list-div li span{
+                                    padding: 10px 15px;
+                                    color: white;
+                                    border-radius: 50%;
+                                    background: var(--background);
+                                }
+                            </style>
+                            <ul>
+                                <li> <span>1</span>Provide clear user-friendly explanations of complicated concepts and/or help with homework.</li>
+                                <li> <span>2</span> Use existing questions to create viable study guides or contribute ones you have already developed. Authors of the popular documents earn money when our community expands.
+                                </li>
+                                <li> <span>3</span>Give consultations to students looking for assistance with particular topics.
+                                </li>
+                                <li> <span>4</span>Contribute your notes, documents and observations that can be of great help for lear
+                                </li>
+                            </ul>
+                           
+                          </div>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="col-7 text-center m-a">
+                    <p>We believe that every person can be an expert in a given area of science, so there is no need for a Doctor’s degree to become an online tutor. However, we need to appropriate credentials proving your expertise in the field you are going to tutor.</p>
+                    <div class="p-20-0">
+                        <p> Please, list your qualifications in the application form and attach any certificates you consider important. We carefully review every application to validate your qualifications.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="learn-div p-t-40">
+        <div class="learn cta-2 col-10 m-a prr">
+            <div class="prr">
+                <div class="prr">
+                    <div class="text-center bbb prr">
+                        <div class="f-s-34">
+                            <p class="f-w-600">FIND THE PERFECT ONLINE TUTORING JOB</p>
+                        </div>
+                        <div class="mm">
+                            <div class="b-one siteButton11" >
+                                <a style="background-color: rgb(236, 236, 13);" class="b-one p-10-20" href="/auth/login">BECOME A TUTOR</a>
+
+                            </div>
+                            <a class="siteButton11  p-12-50" href="/auth/login">BECOME A TUTOR</a>                        
+                        </div>
+                             <img  src="/static/images/girl.webp" class="w-400 fwm" alt="LEARN AND GET BETTER GRADES WITH STUDYDADDY">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="p-t-70">
+        {% include 'partials/footer.html' %}
+    </div>
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/c/js/swiper-bundle.min.js"></script>
+    <script src="/static/c/js/script.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script>
+ 
+
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+        window.onscroll = ()=>{
+
+            
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+            {
+                $("header").addClass("headerBg")
+            }
+
+            else
+            {
+                $("header").removeClass("headerBg")
+
+            }
+          }
+          if(screen.width > 888)
+          {
+              $(".mobile").addClass("hide-m")
+          }
+          else
+          {
+              $(".mobile").removeClass("hide-m")
+
+          }
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 1000);
+    </script>
+</body>
+</html>

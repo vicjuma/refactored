@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/nav.css">
+      <link rel="stylesheet" href="/static/css/tutor.css">
+      <link rel="stylesheet" href="/static/css/ra.min.css">
+      <link rel="stylesheet" href="/static/css.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <div class="mo-signup"></div>
+      <style>
+         header{
+         background: #fff !important;
+         margin-bottom:400px;
+         }
+      </style>
+      <div class="container">
+         <header class="b">
+            <nav>
+               <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+               <div class="navigation-bar-wrapper">
+                  <input type="checkbox"  name="openandclose" id="openandclose">
+                  <div class="portfolio-logo logo">
+                     <a href="/">
+                        <h1>Freelance Bay</h1>
+                     </a>
+                  </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                  <div class="mobile" style="display: flex;gap:10px;">
+                     <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                     <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                           <div class="menu"></div>
+                           <div class="menu mid"></div>
+                           <div class="menu"></div>
+                        </div>
+                     </label>
+                     <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </header>
+      </div>
+      <div class="p-44"></div>
+      <div class="page-div w-p-96 m-a">
+         <div class="bs col-11 m-a p-t-20">
+            <div class="display-flex-normal">
+               <div class="col-9 b-r">
+                  <div class="p-20 ">
+                     <div class=" p-b-15">
+                        <h2>HOW TO GET THE ANSWER</h2>
+                     </div>
+                     <p class="fade f-s-12">
+                        4 easy steps to get the answer
+                     </p>
+                     <div class="steps p-10-0">
+                        <div class="display-flex-normal dn">
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr p-l-10" style="border-left: 5px solid purple;">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">1</span>
+                                    <p class="p-5-0">Submit your instructions
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr ">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">2</span>
+                                    <p class="p-5-0">Review the tutors' proposals
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr ">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">3</span>
+                                    <p class="p-5-0">Assign the most suitable tutor
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr ">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">4</span>
+                                    <p class="p-5-0">Get your answer
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="p-20-0">
+                        <form id="ask-question-form" class="question-form" action="./ask-question-2.html" method="">
+                                   
+                           <div class="question-form__textarea field-askquestionform-question required">
+                              <div class="question-form__error-message question-form__error-messageq"></div>
+                              <p class="title-2 b-b">Place your question here:</p>
+                              <textarea id="editor" class="full-width" name="TutorialForm[description]" rows="5" cols="30"></textarea>
+                              <p class="help-block help-block-error help-block-errorq"></p>
+                           </div>
+                           <div class="question-form__file question-form__row">
+                              <a href="javascript:;" class="js-files-attach-link" data-class-modal="js-wrapper-default" data-attachment-type="1" data-outer-id="0"><i class="fa fa-plus-circle"></i>Attach Files</a>
+                              <span class="uf-count-js-wrapper-default" data-target="ask"></span>
+                           </div>
+                           <div class="question-form__row field-askquestionform-categoryid required">
+                              <span class="question-form__error-messager question-form__error-message"></span>
+                              <p class="title-2 p-10-0">Select subject: <span>(so we can find the right Expert for you)</span></p>
+                              <div id='askquestionform-categoryid'>
+                                 <ul class='question-form__categories'>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="1" value = "1"><label class="question-form__category" for="1">Accounting</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="2" value = "2"><label class="question-form__category" for="2">Algebra</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="3" value = "3"><label class="question-form__category" for="3">Applied Sciences</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="4" value = "4"><label class="question-form__category" for="4">Architecture and Design</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="5" value = "5"><label class="question-form__category" for="5">Art &amp; Design</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="6" value = "6"><label class="question-form__category" for="6">Biology</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="7" value = "7"><label class="question-form__category" for="7">Business &amp; Finance</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="8" value = "8"><label class="question-form__category" for="8">Calculus</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="16" value = "16"><label class="question-form__category" for="16">English</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="17" value = "17"><label class="question-form__category" for="17">Environmental Science</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="18" value = "18"><label class="question-form__category" for="18">Article Writing</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="19" value = "19"><label class="question-form__category" for="19">Film</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="20" value = "20"><label class="question-form__category" for="20">Foreign Languages</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="23" value = "23"><label class="question-form__category" for="23">Geography</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="24" value = "24"><label class="question-form__category" for="24">Geology</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="25" value = "25"><label class="question-form__category" for="25">Geometry</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="27" value = "27"><label class="question-form__category" for="27">Health &amp; Medical</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="28" value = "28"><label class="question-form__category" for="28">History</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="29" value = "29"><label class="question-form__category" for="29">HR Management</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="30" value = "30"><label class="question-form__category" for="30">Information Systems</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="31" value = "31"><label class="question-form__category" for="31">Law</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="32" value = "32"><label class="question-form__category" for="32">Literature</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="33" value = "33"><label class="question-form__category" for="33">Management</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="34" value = "34"><label class="question-form__category" for="34">Marketing</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="35" value = "35"><label class="question-form__category" for="35">Math</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="37" value = "37"><label class="question-form__category" for="37">Numerical Analysis</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="39" value = "39"><label class="question-form__category" for="39">Philosophy</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="40" value = "40"><label class="question-form__category" for="40">Physics</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="41" value = "41"><label class="question-form__category" for="41">Precalculus</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="42" value = "42"><label class="question-form__category" for="42">Political Science</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="43" value = "43"><label class="question-form__category" for="43">Psychology</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="44" value = "44"><label class="question-form__category" for="44">Programming</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="47" value = "47"><label class="question-form__category" for="47">Science</label></li>
+                                    <li class="question-form__categories-item"><input type="radio"  name="AskQuestionForm[categoryId]" id="48" value = "48"><label class="question-form__category" for="48">Social Science</label></li>
+                                 </ul>
+                              </div>
+                           </div>
+                           <div class="question-form__row text-right">
+                              <button type="submit" class="btn btn-blue question-form__button" name="step1"> <a href="/ask/a/question/step2" style="text-decoration: none;color:#fff">Next</a></button>                
+                           </div>
+                        </form>
+                     </div>
+                     <!-- </form> -->
+                     <!-- AskQuestion form end -->
+                  </div>
+               </div>
+               <div class="col-3 dn">
+                  <div class="p-0-25 ">
+                     <div class="pr">
+                        <div class=" p-l-22 m-l-10 ">
+                           <div class="p-10-0">
+                              <p class="f-w-600">
+                                 FAST AND CONVENIENT
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon1.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 Simply post your question and get it answered by professional tutor within 30 minutes. It's as simple as that!
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pr">
+                        <div class=" p-l-20 m-l-10">
+                           <div class="p-10-0">
+                              <p class="f-w-600 f-s-15">
+                                 ANY TOPIC, ANY DIFFICULTY
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon2.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 We've got thousands of tutors in different areas of study who are willing to help you with any kind of academic assignment, be it a math homework or an article.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pr">
+                        <div class=" p-l-22 m-l-10">
+                           <div class="p-10-0">
+                              <p class="f-w-600 f-s-15">
+                                 100% SATISFIED STUDENTS
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon3.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 Join 3,4 million+ members who are already getting homework help from StudyDaddy!
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% include 'partials/footer.html' %} 
+      <script src="/static/js/jQuery.js"></script>
+      <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+      <script src="/static/js/freelance.js"></script>
+      <style>
+         .empty-field {
+         border-color: red;
+         }
+      </style>
+      <script>
+         let studentQuestion = document.querySelector("#studentQuestion");
+         let editor;
+         // Initialize CKEditor
+         ClassicEditor
+         .create(document.querySelector('#editor'))
+                 .catch(error => {
+                     console.error(error);
+                 });
+         document.getElementById("askQuestionForm").addEventListener("submit", (e) => {
+             let askQuestionV = document.querySelector(".currentradio + input[type='radio']");
+             let subjectChosen = document.querySelector("#subjectChosen");
+             subjectChosen.value = askQuestionV.value
+             console.log(subjectChosen.value)
+             return true
+         })
+     </script>
+      <div class="mo-signup"></div>    
+      <script>
+        
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }        
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 10)
+          
+    </script>
+
+      <script>
+        $(document).ready(()=>{
+            $("#ask-question-form").on("submit", (e)=>{
+                var isValid = true;
+                var selectedValue = $('input[name="AskQuestionForm[categoryId]"]:checked').val();
+                
+            
+
+                if($("#tutorialform-description").val().length < 10)
+                {
+                    isValid = false
+                    $("#cke_tutorialform-description").addClass("empty-field")
+                    $(".question-form__error-messageq").html("10 characters minimum")
+                }  
+                else
+                {
+                    $(".question-form__error-messageq").html("");
+                    $("#cke_tutorialform-description").removeClass("empty-field")
+                }
+
+
+              
+                if(!selectedValue)
+                {
+                    isValid = false
+                    $(".question-form__error-messager").html("Please select one category")
+                }
+
+                else
+                {
+                    $(".question-form__error-messager").html("")
+                }
+                if(!isValid)
+                {
+                    e.preventDefault()
+                }
+            })
+        })
+      </script>
+   </body>
+</html>

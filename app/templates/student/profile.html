@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        header{
+            background: #fff !important;
+
+            margin-bottom:400px;
+        }
+     
+
+    </style>
+    <div class="container">
+        <header class="b">
+            <nav>
+                <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+                <div class="navigation-bar-wrapper">
+                    <input type="checkbox"  name="openandclose" id="openandclose">
+                    <div class="logo">
+                        <a href="/">
+                            <h1>Freelance Bay</h1>
+                        </a>
+                    </div>
+                    <ul class="navigation-bar-links">
+                        <div class="second-nav">
+                            <div class="display-flex-normal column">
+                                <li><a href="/api/users/ask/question">Ask a question</a></li>
+                                <li><a href="/api/users/my/questions">My Question</a></li>
+                                <li><a href="/api/users/balance">Balance</a></li>
+                                <li><a href="/account/support">Support</a></li>
+                                <li><a href="{{ url_for('getProfile', username=student.username) }}" class="prr display-flex-normal ">Profile</a></li>
+                            </div>
+                        </div>
+                        <a href="/api/users/logout">Logout<i class='bx bx-log-out'></i></a>
+                    </ul>
+                    
+                    
+                        <label id="open" for="openandclose" class="p-l-10" >
+                            <div class="">
+                                <div class="menu"></div>
+                                <div class="menu mid"></div>
+                                <div class="menu"></div>
+                            </div>
+                        </label>
+
+                       
+                    
+                </div>
+            </nav>
+        </header>  
+    </div>
+    <div class="p-40 b-b"></div>
+
+    <div class="page-div w-p-100 m-a b-b">
+        <div class=" m-a " >
+            <div class="display-flex-normal fwm">
+                <div class="col-2  prr dn">
+                    <div class=" prr side display-flex-normal column b-b b-r w-p-100">
+                        <a href="./ask.html" class=" prr display-flex-normal ">
+                            <i class='bx bx-plus-circle p-l-20'></i>
+                            <p class="p-l-20">Ask a Question</p>
+                        </a>
+                        <a href="./quiz.html" class=" prr display-flex-normal ">
+                            <i class='bx bxs-folder-open p-l-20'></i> 
+                            <p class="p-l-20">My Questions</p>
+                        </a>
+                        <a href="./bal.html" class=" prr display-flex-normal ">
+                            <i class='bx bx-money p-l-20'></i>
+                            <p class="p-l-20">Balance</p>
+                        </a>
+                        <a href="./support.html" class=" prr display-flex-normal ">
+                            <i class="fa p-l-20 fa-comments"></i> 
+                            <p class="p-l-20">
+                                Support
+                            </p>
+                        </a>
+                        <a href="./profile.html" class="activeSide prr display-flex-normal ">
+                            <i class='bx bx-cog p-l-20'></i> <p class="p-l-20">
+                                Profile
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-8 m-a">
+                    <div class="col-9 m-a">
+                        <div class="p-b-40 m-b-20">
+                            <div class="p-40-0">
+                                <form action="">
+                                    <div class="p-20">
+                                        <div class="b-one m-a w-110 b-r-100 align-center h-110  text-center ">
+                                            <div class="p-10">
+                                                <img class="" src="/static/images/icon-default_avatar.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="p-10-0">
+                                            <div class="p-10" style="display: flex; justify-content:center; align-items: center;">
+                                                <label for="profile">
+                                                    <p class="cursor-pointer default-color b-one p-10-20 b-r-3">CHOOSE YOUR PICTURE</p>
+                                                </label>
+                                                <input type="file" name="profile-pic" hidden id="profile">
+    
+                                            </div>
+                                        </div>
+
+                                        <div class="display-flex-normal fwm">
+                                            <div class="col-6">
+                                                <div class=" w-p-100 display-flex-normal column">
+                                                    <div class="p-0-20">
+                                                        <p class="p-b-10">Username *</p>
+                                                        <div class="b-one w-p-100">
+                                                            <input type="text" class="b-n p-10"  name="" id="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class=" w-p-100 display-flex-normal column">
+                                                    <div class="p-0-20">
+                                                        <p class="p-b-10">Email *</p>
+                                                        <div class="b-one w-p-100">
+                                                            <input type="text" class="b-n p-10"  name="" id="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="display-flex-normal fwm p-t-20">
+                                            <div class="col-6">
+                                                <div class=" w-p-100 display-flex-normal column">
+                                                    <div class="p-0-20">
+                                                        <p class="p-b-10">Password</p>
+                                                        <div class="b-one w-p-100">
+                                                            <input type="text" class="b-n p-10"  name="" id="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class=" w-p-100 display-flex-normal column">
+                                                    <div class="p-0-20">
+                                                        <p class="p-b-10">Confirm password</p>
+                                                        <div class="b-one w-p-100">
+                                                            <input type="text" class="b-n p-10"  name="" id="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-20">
+                                            <p class="p-b-10">Default time zone:</p>
+                                            <div class="b-one ">
+                                                <select id="commonaccountform-timezoneid" class="w-p-100 p-10-0 b-n bg-inherit" name="CommonAccountForm[timeZoneId]">
+                                                    <option value="1">Pacific/Midway (GMT-11:00) Midway Island</option>
+                                                    <option value="2">US/Samoa (GMT-11:00) Samoa</option>
+                                                    <option value="3">US/Hawaii (GMT-10:00) Hawaii</option>
+                                                    <option value="4">US/Alaska (GMT-09:00) Alaska</option>
+                                                    <option value="5">US/Pacific (GMT-08:00) Pacific Time (US &amp;amp; Canada)</option>
+                                                    <option value="6">America/Tijuana (GMT-08:00) Tijuana</option>
+                                                    <option value="7">US/Arizona (GMT-07:00) Arizona</option>
+                                                    <option value="8">US/Mountain (GMT-07:00) Mountain Time (US &amp;amp; Canada)</option>
+                                                    <option value="9">America/Chihuahua (GMT-07:00) Chihuahua</option>
+                                                    <option value="10">America/Mazatlan (GMT-07:00) Mazatlan</option>
+                                                    <option value="11">America/Mexico_City (GMT-06:00) Mexico City</option>
+                                                    <option value="12">America/Monterrey (GMT-06:00) Monterrey</option>
+                                                    <option value="13">Canada/Saskatchewan (GMT-06:00) Saskatchewan</option>
+                                                    <option value="14">US/Central (GMT-06:00) Central Time (US &amp;amp; Canada)</option>
+                                                    <option value="15">US/Eastern (GMT-05:00) Eastern Time (US &amp;amp; Canada)</option>
+                                                    <option value="16">US/East-Indiana (GMT-05:00) Indiana (East)</option>
+                                                    <option value="17">America/Bogota (GMT-05:00) Bogota</option>
+                                                    <option value="18">America/Lima (GMT-05:00) Lima</option>
+                                                    <option value="19">America/Caracas (GMT-04:30) Caracas</option>
+                                                    <option value="20">Canada/Atlantic (GMT-04:00) Atlantic Time (Canada)</option>
+                                                    <option value="21">America/La_Paz (GMT-04:00) La Paz</option>
+                                                    <option value="22">America/Santiago (GMT-04:00) Santiago</option>
+                                                    <option value="23">Canada/Newfoundland (GMT-03:30) Newfoundland</option>
+                                                    <option value="24">America/Buenos_Aires (GMT-03:00) Buenos Aires</option>
+                                                    <option value="25">Greenland (GMT-03:00) Greenland</option>
+                                                    <option value="26">Atlantic/Stanley (GMT-02:00) Stanley</option>
+                                                    <option value="27">Atlantic/Azores (GMT-01:00) Azores</option>
+                                                    <option value="28">Atlantic/Cape_Verde (GMT-01:00) Cape Verde Is.</option>
+                                                    <option value="29">Africa/Casablanca (GMT) Casablanca</option>
+                                                    <option value="30">Europe/Dublin (GMT) Dublin</option>
+                                                    <option value="31">Europe/Lisbon (GMT) Lisbon</option>
+                                                    <option value="32">Europe/London (GMT) London</option>
+                                                    <option value="33">Africa/Monrovia (GMT) Monrovia</option>
+                                                    <option value="34">Europe/Amsterdam (GMT+01:00) Amsterdam</option>
+                                                    <option value="35">Europe/Belgrade (GMT+01:00) Belgrade</option>
+                                                    <option value="36">Europe/Berlin (GMT+01:00) Berlin</option>
+                                                    <option value="37">Europe/Bratislava (GMT+01:00) Bratislava</option>
+                                                    <option value="38">Europe/Brussels (GMT+01:00) Brussels</option>
+                                                    <option value="39">Europe/Budapest (GMT+01:00) Budapest</option>
+                                                    <option value="40">Europe/Copenhagen (GMT+01:00) Copenhagen</option>
+                                                    <option value="41">Europe/Ljubljana (GMT+01:00) Ljubljana</option>
+                                                    <option value="42">Europe/Madrid (GMT+01:00) Madrid</option>
+                                                    <option value="43">Europe/Paris (GMT+01:00) Paris</option>
+                                                    <option value="44">Europe/Prague (GMT+01:00) Prague</option>
+                                                    <option value="45">Europe/Rome (GMT+01:00) Rome</option>
+                                                    <option value="46">Europe/Sarajevo (GMT+01:00) Sarajevo</option>
+                                                    <option value="47">Europe/Skopje (GMT+01:00) Skopje</option>
+                                                    <option value="48">Europe/Stockholm (GMT+01:00) Stockholm</option>
+                                                    <option value="49">Europe/Vienna (GMT+01:00) Vienna</option>
+                                                    <option value="50">Europe/Warsaw (GMT+01:00) Warsaw</option>
+                                                    <option value="51">Europe/Zagreb (GMT+01:00) Zagreb</option>
+                                                    <option value="52">Europe/Athens (GMT+02:00) Athens</option>
+                                                    <option value="53">Europe/Bucharest (GMT+02:00) Bucharest</option>
+                                                    <option value="54">Africa/Cairo (GMT+02:00) Cairo</option>
+                                                    <option value="55">Africa/Harare (GMT+02:00) Harare</option>
+                                                    <option value="56">Europe/Helsinki (GMT+02:00) Helsinki</option>
+                                                    <option value="57">Europe/Istanbul (GMT+02:00) Istanbul</option>
+                                                    <option value="58">Asia/Jerusalem (GMT+02:00) Jerusalem</option>
+                                                    <option value="59">Europe/Kiev (GMT+02:00) Kyiv</option>
+                                                    <option value="60">Europe/Minsk (GMT+02:00) Minsk</option>
+                                                    <option value="61">Europe/Riga (GMT+02:00) Riga</option>
+                                                    <option value="62">Europe/Sofia (GMT+02:00) Sofia</option>
+                                                    <option value="63">Europe/Tallinn (GMT+02:00) Tallinn</option>
+                                                    <option value="64">Europe/Vilnius (GMT+02:00) Vilnius</option>
+                                                    <option value="65">Asia/Baghdad (GMT+03:00) Baghdad</option>
+                                                    <option value="66">Asia/Kuwait (GMT+03:00) Kuwait</option>
+                                                    <option value="67">Africa/Nairobi (GMT+03:00) Nairobi</option>
+                                                    <option value="68">Asia/Riyadh (GMT+03:00) Riyadh</option>
+                                                    <option value="69">Europe/Moscow (GMT+03:00) Moscow</option>
+                                                    <option value="70">Asia/Tehran (GMT+03:30) Tehran</option>
+                                                    <option value="71">Asia/Baku (GMT+04:00) Baku</option>
+                                                    <option value="72">Europe/Volgograd (GMT+04:00) Volgograd</option>
+                                                    <option value="73">Asia/Muscat (GMT+04:00) Muscat</option>
+                                                    <option value="74">Asia/Tbilisi (GMT+04:00) Tbilisi</option>
+                                                    <option value="75">Asia/Yerevan (GMT+04:00) Yerevan</option>
+                                                    <option value="76">Asia/Kabul (GMT+04:30) Kabul</option>
+                                                    <option value="77">Asia/Karachi (GMT+05:00) Karachi</option>
+                                                    <option value="78">Asia/Tashkent (GMT+05:00) Tashkent</option>
+                                                    <option value="79">Asia/Kolkata (GMT+05:30) Kolkata</option>
+                                                    <option value="80">Asia/Kathmandu (GMT+05:45) Kathmandu</option>
+                                                    <option value="81">Asia/Yekaterinburg (GMT+06:00) Ekaterinburg</option>
+                                                    <option value="82">Asia/Almaty (GMT+06:00) Almaty</option>
+                                                    <option value="83">Asia/Dhaka (GMT+06:00) Dhaka</option>
+                                                    <option value="84">Asia/Novosibirsk (GMT+07:00) Novosibirsk</option>
+                                                    <option value="85">Asia/Bangkok (GMT+07:00) Bangkok</option>
+                                                    <option value="86">Asia/Jakarta (GMT+07:00) Jakarta</option>
+                                                    <option value="87">Asia/Krasnoyarsk (GMT+08:00) Krasnoyarsk</option>
+                                                    <option value="88">Asia/Chongqing (GMT+08:00) Chongqing</option>
+                                                    <option value="89">Asia/Hong_Kong (GMT+08:00) Hong Kong</option>
+                                                    <option value="90">Asia/Kuala_Lumpur (GMT+08:00) Kuala Lumpur</option>
+                                                    <option value="91">Australia/Perth (GMT+08:00) Perth</option>
+                                                    <option value="92">Asia/Singapore (GMT+08:00) Singapore</option>
+                                                    <option value="93">Asia/Taipei (GMT+08:00) Taipei</option>
+                                                    <option value="94">Asia/Ulaanbaatar (GMT+08:00) Ulaan Bataar</option>
+                                                    <option value="95">Asia/Urumqi (GMT+08:00) Urumqi</option>
+                                                    <option value="96">Asia/Irkutsk (GMT+09:00) Irkutsk</option>
+                                                    <option value="97">Asia/Seoul (GMT+09:00) Seoul</option>
+                                                    <option value="98">Asia/Tokyo (GMT+09:00) Tokyo</option>
+                                                    <option value="99">Australia/Adelaide (GMT+09:30) Adelaide</option>
+                                                    <option value="100">Australia/Darwin (GMT+09:30) Darwin</option>
+                                                    <option value="101">Asia/Yakutsk (GMT+10:00) Yakutsk</option>
+                                                    <option value="102">Australia/Brisbane (GMT+10:00) Brisbane</option>
+                                                    <option value="103">Australia/Canberra (GMT+10:00) Canberra</option>
+                                                    <option value="104">Pacific/Guam (GMT+10:00) Guam</option>
+                                                    <option value="105">Australia/Hobart (GMT+10:00) Hobart</option>
+                                                    <option value="106">Australia/Melbourne (GMT+10:00) Melbourne</option>
+                                                    <option value="107">Pacific/Port_Moresby (GMT+10:00) Port Moresby</option>
+                                                    <option value="108">Australia/Sydney (GMT+10:00) Sydney</option>
+                                                    <option value="109">Asia/Vladivostok (GMT+11:00) Vladivostok</option>
+                                                    <option value="110">Asia/Magadan (GMT+12:00) Magadan</option>
+                                                    <option value="111">Pacific/Auckland (GMT+12:00) Auckland</option>
+                                                    <option value="112">Pacific/Fiji (GMT+12:00) Fiji</option>
+                                                    <option value="113" selected="">UTC (GMT)</option>
+                                                    <option value="114">Pacific/Niue (GMT-11:00) Niue</option>
+                                                    <option value="115">Pacific/Pago_Pago (GMT-11:00) Pago Pago</option>
+                                                    <option value="116">Pacific/Honolulu (GMT-10:00) Honolulu</option>
+                                                    <option value="117">Pacific/Johnston (GMT-10:00) Johnston</option>
+                                                    <option value="118">Pacific/Rarotonga (GMT-10:00) Rarotonga</option>
+                                                    <option value="119">Pacific/Tahiti (GMT-10:00) Tahiti</option>
+                                                    <option value="120">Pacific/Marquesas (GMT-09:30) Marquesas</option>
+                                                    <option value="121">America/Adak (GMT-09:00) Adak</option>
+                                                    <option value="122">Pacific/Gambier (GMT-09:00) Gambier</option>
+                                                    <option value="123">America/Anchorage (GMT-08:00) Anchorage</option>
+                                                    <option value="124">America/Juneau (GMT-08:00) Juneau</option>
+                                                    <option value="125">America/Metlakatla (GMT-08:00) Metlakatla</option>
+                                                    <option value="126">America/Nome (GMT-08:00) Nome</option>
+                                                    <option value="127">Pacific/Pitcairn (GMT-08:00) Pitcairn</option>
+                                                    <option value="128">America/Sitka (GMT-08:00) Sitka</option>
+                                                    <option value="129">America/Yakutat (GMT-08:00) Yakutat</option>
+                                                    <option value="130">America/Creston (GMT-07:00) Creston</option>
+                                                    <option value="131">America/Dawson (GMT-07:00) Dawson</option>
+                                                    <option value="132">America/Dawson_Creek (GMT-07:00) Dawson Creek</option>
+                                                    <option value="133">America/Fort_Nelson (GMT-07:00) Fort Nelson</option>
+                                                    <option value="134">America/Hermosillo (GMT-07:00) Hermosillo</option>
+                                                    <option value="135">America/Los_Angeles (GMT-07:00) Los Angeles</option>
+                                                    <option value="136">America/Phoenix (GMT-07:00) Phoenix</option>
+                                                    <option value="137">America/Santa_Isabel (GMT-07:00) Santa Isabel</option>
+                                                    <option value="138">America/Vancouver (GMT-07:00) Vancouver</option>
+                                                    <option value="139">America/Whitehorse (GMT-07:00) Whitehorse</option>
+                                                    <option value="140">America/Belize (GMT-06:00) Belize</option>
+                                                    <option value="141">America/Boise (GMT-06:00) Boise</option>
+                                                    <option value="142">America/Cambridge_Bay (GMT-06:00) Cambridge Bay</option>
+                                                    <option value="143">America/Costa_Rica (GMT-06:00) Costa Rica</option>
+                                                    <option value="144">America/Denver (GMT-06:00) Denver</option>
+                                                    <option value="145">America/Edmonton (GMT-06:00) Edmonton</option>
+                                                    <option value="146">America/El_Salvador (GMT-06:00) El Salvador</option>
+                                                    <option value="147">Pacific/Galapagos (GMT-06:00) Galapagos</option>
+                                                    <option value="148">America/Guatemala (GMT-06:00) Guatemala</option>
+                                                    <option value="149">America/Inuvik (GMT-06:00) Inuvik</option>
+                                                    <option value="150">America/Managua (GMT-06:00) Managua</option>
+                                                    <option value="151">America/Ojinaga (GMT-06:00) Ojinaga</option>
+                                                    <option value="152">America/Regina (GMT-06:00) Regina</option>
+                                                    <option value="153">America/Swift_Current (GMT-06:00) Swift Current</option>
+                                                    <option value="154">America/Tegucigalpa (GMT-06:00) Tegucigalpa</option>
+                                                    <option value="155">America/Yellowknife (GMT-06:00) Yellowknife</option>
+                                                    <option value="156">America/Atikokan (GMT-05:00) Atikokan</option>
+                                                    <option value="157">America/Bahia_Banderas (GMT-05:00) Bahia Banderas</option>
+                                                    <option value="158">America/North_Dakota/Beulah (GMT-05:00) Beulah</option>
+                                                    <option value="159">America/Cancun (GMT-05:00) Cancun</option>
+                                                    <option value="160">America/North_Dakota/Center (GMT-05:00) Center</option>
+                                                    <option value="161">America/Chicago (GMT-05:00) Chicago</option>
+                                                    <option value="162">Pacific/Easter (GMT-05:00) Easter</option>
+                                                    <option value="163">America/Eirunepe (GMT-05:00) Eirunepe</option>
+                                                    <option value="164">America/Guayaquil (GMT-05:00) Guayaquil</option>
+                                                    <option value="165">America/Jamaica (GMT-05:00) Jamaica</option>
+                                                    <option value="166">America/Indiana/Knox (GMT-05:00) Knox</option>
+                                                    <option value="167">America/Matamoros (GMT-05:00) Matamoros</option>
+                                                    <option value="168">America/Menominee (GMT-05:00) Menominee</option>
+                                                    <option value="169">America/Merida (GMT-05:00) Merida</option>
+                                                    <option value="170">America/North_Dakota/New_Salem (GMT-05:00) New Salem</option>
+                                                    <option value="171">America/Panama (GMT-05:00) Panama</option>
+                                                    <option value="172">America/Rainy_River (GMT-05:00) Rainy River</option>
+                                                    <option value="173">America/Rankin_Inlet (GMT-05:00) Rankin Inlet</option>
+                                                    <option value="174">America/Resolute (GMT-05:00) Resolute</option>
+                                                    <option value="175">America/Rio_Branco (GMT-05:00) Rio Branco</option>
+                                                    <option value="176">America/Indiana/Tell_City (GMT-05:00) Tell City</option>
+                                                    <option value="177">America/Winnipeg (GMT-05:00) Winnipeg</option>
+                                                    <option value="178">America/Anguilla (GMT-04:00) Anguilla</option>
+                                                    <option value="179">America/Antigua (GMT-04:00) Antigua</option>
+                                                    <option value="180">America/Aruba (GMT-04:00) Aruba</option>
+                                                    <option value="181">America/Asuncion (GMT-04:00) Asuncion</option>
+                                                    <option value="182">America/Barbados (GMT-04:00) Barbados</option>
+                                                    <option value="183">America/Blanc-Sablon (GMT-04:00) Blanc-Sablon</option>
+                                                    <option value="184">America/Boa_Vista (GMT-04:00) Boa Vista</option>
+                                                    <option value="185">America/Campo_Grande (GMT-04:00) Campo Grande</option>
+                                                    <option value="186">America/Cayman (GMT-04:00) Cayman</option>
+                                                    <option value="187">America/Cuiaba (GMT-04:00) Cuiaba</option>
+                                                    <option value="188">America/Curacao (GMT-04:00) Curacao</option>
+                                                    <option value="189">America/Detroit (GMT-04:00) Detroit</option>
+                                                    <option value="190">America/Dominica (GMT-04:00) Dominica</option>
+                                                    <option value="191">America/Grand_Turk (GMT-04:00) Grand Turk</option>
+                                                    <option value="192">America/Grenada (GMT-04:00) Grenada</option>
+                                                    <option value="193">America/Guadeloupe (GMT-04:00) Guadeloupe</option>
+                                                    <option value="194">America/Guyana (GMT-04:00) Guyana</option>
+                                                    <option value="195">America/Havana (GMT-04:00) Havana</option>
+                                                    <option value="196">America/Indiana/Indianapolis (GMT-04:00) Indianapolis</option>
+                                                    <option value="197">America/Iqaluit (GMT-04:00) Iqaluit</option>
+                                                    <option value="198">America/Kralendijk (GMT-04:00) Kralendijk</option>
+                                                    <option value="199">America/Kentucky/Louisville (GMT-04:00) Louisville</option>
+                                                    <option value="200">America/Lower_Princes (GMT-04:00) Lower Princes</option>
+                                                    <option value="201">America/Manaus (GMT-04:00) Manaus</option>
+                                                    <option value="202">America/Indiana/Marengo (GMT-04:00) Marengo</option>
+                                                    <option value="203">America/Marigot (GMT-04:00) Marigot</option>
+                                                    <option value="204">America/Martinique (GMT-04:00) Martinique</option>
+                                                    <option value="205">America/Kentucky/Monticello (GMT-04:00) Monticello</option>
+                                                    <option value="206">America/Montserrat (GMT-04:00) Montserrat</option>
+                                                    <option value="207">America/Nassau (GMT-04:00) Nassau</option>
+                                                    <option value="208">America/New_York (GMT-04:00) New York</option>
+                                                    <option value="209">America/Nipigon (GMT-04:00) Nipigon</option>
+                                                    <option value="210">America/Pangnirtung (GMT-04:00) Pangnirtung</option>
+                                                    <option value="211">America/Indiana/Petersburg (GMT-04:00) Petersburg</option>
+                                                    <option value="212">America/Port_of_Spain (GMT-04:00) Port of Spain</option>
+                                                    <option value="213">America/Port-au-Prince (GMT-04:00) Port-au-Prince</option>
+                                                    <option value="214">America/Porto_Velho (GMT-04:00) Porto Velho</option>
+                                                    <option value="215">America/Puerto_Rico (GMT-04:00) Puerto Rico</option>
+                                                    <option value="216">America/Santo_Domingo (GMT-04:00) Santo Domingo</option>
+                                                    <option value="217">America/St_Barthelemy (GMT-04:00) St. Barthelemy</option>
+                                                    <option value="218">America/St_Kitts (GMT-04:00) St. Kitts</option>
+                                                    <option value="219">America/St_Lucia (GMT-04:00) St. Lucia</option>
+                                                    <option value="220">America/St_Thomas (GMT-04:00) St. Thomas</option>
+                                                    <option value="221">America/St_Vincent (GMT-04:00) St. Vincent</option>
+                                                    <option value="222">America/Thunder_Bay (GMT-04:00) Thunder Bay</option>
+                                                    <option value="223">America/Toronto (GMT-04:00) Toronto</option>
+                                                    <option value="224">America/Tortola (GMT-04:00) Tortola</option>
+                                                    <option value="225">America/Indiana/Vevay (GMT-04:00) Vevay</option>
+                                                    <option value="226">America/Indiana/Vincennes (GMT-04:00) Vincennes</option>
+                                                    <option value="227">America/Indiana/Winamac (GMT-04:00) Winamac</option>
+                                                    <option value="228">America/Araguaina (GMT-03:00) Araguaina</option>
+                                                    <option value="229">America/Bahia (GMT-03:00) Bahia</option>
+                                                    <option value="230">America/Belem (GMT-03:00) Belem</option>
+                                                    <option value="231">Atlantic/Bermuda (GMT-03:00) Bermuda</option>
+                                                    <option value="232">America/Argentina/Buenos_Aires (GMT-03:00) Buenos Aires</option>
+                                                    <option value="233">America/Argentina/Catamarca (GMT-03:00) Catamarca</option>
+                                                    <option value="234">America/Cayenne (GMT-03:00) Cayenne</option>
+                                                    <option value="235">America/Argentina/Cordoba (GMT-03:00) Cordoba</option>
+                                                    <option value="236">America/Fortaleza (GMT-03:00) Fortaleza</option>
+                                                    <option value="237">America/Glace_Bay (GMT-03:00) Glace Bay</option>
+                                                    <option value="238">America/Goose_Bay (GMT-03:00) Goose Bay</option>
+                                                    <option value="239">America/Halifax (GMT-03:00) Halifax</option>
+                                                    <option value="240">America/Argentina/Jujuy (GMT-03:00) Jujuy</option>
+                                                    <option value="241">America/Argentina/La_Rioja (GMT-03:00) La Rioja</option>
+                                                    <option value="242">America/Maceio (GMT-03:00) Maceio</option>
+                                                    <option value="243">America/Argentina/Mendoza (GMT-03:00) Mendoza</option>
+                                                    <option value="244">America/Moncton (GMT-03:00) Moncton</option>
+                                                    <option value="245">America/Montevideo (GMT-03:00) Montevideo</option>
+                                                    <option value="246">Antarctica/Palmer (GMT-03:00) Palmer</option>
+                                                    <option value="247">America/Paramaribo (GMT-03:00) Paramaribo</option>
+                                                    <option value="248">America/Recife (GMT-03:00) Recife</option>
+                                                    <option value="249">America/Argentina/Rio_Gallegos (GMT-03:00) Rio Gallegos</option>
+                                                    <option value="250">Antarctica/Rothera (GMT-03:00) Rothera</option>
+                                                    <option value="251">America/Argentina/Salta (GMT-03:00) Salta</option>
+                                                    <option value="252">America/Argentina/San_Juan (GMT-03:00) San Juan</option>
+                                                    <option value="253">America/Argentina/San_Luis (GMT-03:00) San Luis</option>
+                                                    <option value="254">America/Santarem (GMT-03:00) Santarem</option>
+                                                    <option value="255">America/Sao_Paulo (GMT-03:00) Sao Paulo</option>
+                                                    <option value="256">America/Thule (GMT-03:00) Thule</option>
+                                                    <option value="257">America/Argentina/Tucuman (GMT-03:00) Tucuman</option>
+                                                    <option value="258">America/Argentina/Ushuaia (GMT-03:00) Ushuaia</option>
+                                                    <option value="259">America/St_Johns (GMT-02:30) St. Johns</option>
+                                                    <option value="260">America/Godthab (GMT-02:00) Godthab</option>
+                                                    <option value="261">America/Miquelon (GMT-02:00) Miquelon</option>
+                                                    <option value="262">America/Noronha (GMT-02:00) Noronha</option>
+                                                    <option value="263">Atlantic/South_Georgia (GMT-02:00) South Georgia</option>
+                                                    <option value="264">Africa/Abidjan (GMT) Abidjan</option>
+                                                    <option value="265">Africa/Accra (GMT) Accra</option>
+                                                    <option value="266">Africa/Bamako (GMT) Bamako</option>
+                                                    <option value="267">Africa/Banjul (GMT) Banjul</option>
+                                                    <option value="268">Africa/Bissau (GMT) Bissau</option>
+                                                    <option value="269">Africa/Conakry (GMT) Conakry</option>
+                                                    <option value="270">Africa/Dakar (GMT) Dakar</option>
+                                                    <option value="271">America/Danmarkshavn (GMT) Danmarkshavn</option>
+                                                    <option value="272">Africa/El_Aaiun (GMT) El Aaiun</option>
+                                                    <option value="273">Africa/Freetown (GMT) Freetown</option>
+                                                    <option value="274">Africa/Lome (GMT) Lome</option>
+                                                    <option value="275">Africa/Nouakchott (GMT) Nouakchott</option>
+                                                    <option value="276">Africa/Ouagadougou (GMT) Ouagadougou</option>
+                                                    <option value="277">Atlantic/Reykjavik (GMT) Reykjavik</option>
+                                                    <option value="278">Africa/Sao_Tome (GMT) Sao Tome</option>
+                                                    <option value="279">America/Scoresbysund (GMT) Scoresbysund</option>
+                                                    <option value="280">Atlantic/St_Helena (GMT) St. Helena</option>
+                                                    <option value="281">Africa/Algiers (GMT+01:00) Algiers</option>
+                                                    <option value="282">Africa/Bangui (GMT+01:00) Bangui</option>
+                                                    <option value="283">Africa/Brazzaville (GMT+01:00) Brazzaville</option>
+                                                    <option value="284">Atlantic/Canary (GMT+01:00) Canary</option>
+                                                    <option value="285">Africa/Douala (GMT+01:00) Douala</option>
+                                                    <option value="286">Atlantic/Faroe (GMT+01:00) Faroe</option>
+                                                    <option value="287">Europe/Guernsey (GMT+01:00) Guernsey</option>
+                                                    <option value="288">Europe/Isle_of_Man (GMT+01:00) Isle of Man</option>
+                                                    <option value="289">Europe/Jersey (GMT+01:00) Jersey</option>
+                                                    <option value="290">Africa/Kinshasa (GMT+01:00) Kinshasa</option>
+                                                    <option value="291">Africa/Lagos (GMT+01:00) Lagos</option>
+                                                    <option value="292">Africa/Libreville (GMT+01:00) Libreville</option>
+                                                    <option value="293">Africa/Luanda (GMT+01:00) Luanda</option>
+                                                    <option value="294">Atlantic/Madeira (GMT+01:00) Madeira</option>
+                                                    <option value="295">Africa/Malabo (GMT+01:00) Malabo</option>
+                                                    <option value="296">Africa/Ndjamena (GMT+01:00) Ndjamena</option>
+                                                    <option value="297">Africa/Niamey (GMT+01:00) Niamey</option>
+                                                    <option value="298">Africa/Porto-Novo (GMT+01:00) Porto-Novo</option>
+                                                    <option value="299">Africa/Tunis (GMT+01:00) Tunis</option>
+                                                    <option value="300">Africa/Windhoek (GMT+01:00) Windhoek</option>
+                                                    <option value="301">Europe/Andorra (GMT+02:00) Andorra</option>
+                                                    <option value="302">Africa/Blantyre (GMT+02:00) Blantyre</option>
+                                                    <option value="303">Africa/Bujumbura (GMT+02:00) Bujumbura</option>
+                                                    <option value="304">Europe/Busingen (GMT+02:00) Busingen</option>
+                                                    <option value="305">Africa/Ceuta (GMT+02:00) Ceuta</option>
+                                                    <option value="306">Africa/Gaborone (GMT+02:00) Gaborone</option>
+                                                    <option value="307">Europe/Gibraltar (GMT+02:00) Gibraltar</option>
+                                                    <option value="308">Africa/Johannesburg (GMT+02:00) Johannesburg</option>
+                                                    <option value="309">Europe/Kaliningrad (GMT+02:00) Kaliningrad</option>
+                                                    <option value="310">Africa/Kigali (GMT+02:00) Kigali</option>
+                                                    <option value="311">Arctic/Longyearbyen (GMT+02:00) Longyearbyen</option>
+                                                    <option value="312">Africa/Lubumbashi (GMT+02:00) Lubumbashi</option>
+                                                    <option value="313">Africa/Lusaka (GMT+02:00) Lusaka</option>
+                                                    <option value="314">Europe/Luxembourg (GMT+02:00) Luxembourg</option>
+                                                    <option value="315">Europe/Malta (GMT+02:00) Malta</option>
+                                                    <option value="316">Africa/Maputo (GMT+02:00) Maputo</option>
+                                                    <option value="317">Africa/Maseru (GMT+02:00) Maseru</option>
+                                                    <option value="318">Africa/Mbabane (GMT+02:00) Mbabane</option>
+                                                    <option value="319">Europe/Monaco (GMT+02:00) Monaco</option>
+                                                    <option value="320">Europe/Oslo (GMT+02:00) Oslo</option>
+                                                    <option value="321">Europe/Podgorica (GMT+02:00) Podgorica</option>
+                                                    <option value="322">Europe/San_Marino (GMT+02:00) San Marino</option>
+                                                    <option value="323">Europe/Tirane (GMT+02:00) Tirane</option>
+                                                    <option value="324">Africa/Tripoli (GMT+02:00) Tripoli</option>
+                                                    <option value="325">Antarctica/Troll (GMT+02:00) Troll</option>
+                                                    <option value="326">Europe/Vaduz (GMT+02:00) Vaduz</option>
+                                                    <option value="327">Europe/Vatican (GMT+02:00) Vatican</option>
+                                                    <option value="328">Europe/Zurich (GMT+02:00) Zurich</option>
+                                                    <option value="329">Africa/Addis_Ababa (GMT+03:00) Addis Ababa</option>
+                                                    <option value="330">Asia/Aden (GMT+03:00) Aden</option>
+                                                    <option value="331">Asia/Amman (GMT+03:00) Amman</option>
+                                                    <option value="332">Indian/Antananarivo (GMT+03:00) Antananarivo</option>
+                                                    <option value="333">Africa/Asmara (GMT+03:00) Asmara</option>
+                                                    <option value="334">Asia/Bahrain (GMT+03:00) Bahrain</option>
+                                                    <option value="335">Asia/Beirut (GMT+03:00) Beirut</option>
+                                                    <option value="336">Europe/Chisinau (GMT+03:00) Chisinau</option>
+                                                    <option value="337">Indian/Comoro (GMT+03:00) Comoro</option>
+                                                    <option value="338">Asia/Damascus (GMT+03:00) Damascus</option>
+                                                    <option value="339">Africa/Dar_es_Salaam (GMT+03:00) Dar es Salaam</option>
+                                                    <option value="340">Africa/Djibouti (GMT+03:00) Djibouti</option>
+                                                    <option value="341">Asia/Gaza (GMT+03:00) Gaza</option>
+                                                    <option value="342">Asia/Hebron (GMT+03:00) Hebron</option>
+                                                    <option value="343">Africa/Juba (GMT+03:00) Juba</option>
+                                                    <option value="344">Africa/Kampala (GMT+03:00) Kampala</option>
+                                                    <option value="345">Africa/Khartoum (GMT+03:00) Khartoum</option>
+                                                    <option value="346">Europe/Mariehamn (GMT+03:00) Mariehamn</option>
+                                                    <option value="347">Indian/Mayotte (GMT+03:00) Mayotte</option>
+                                                    <option value="348">Africa/Mogadishu (GMT+03:00) Mogadishu</option>
+                                                    <option value="349">Asia/Nicosia (GMT+03:00) Nicosia</option>
+                                                    <option value="350">Asia/Qatar (GMT+03:00) Qatar</option>
+                                                    <option value="351">Europe/Simferopol (GMT+03:00) Simferopol</option>
+                                                    <option value="352">Antarctica/Syowa (GMT+03:00) Syowa</option>
+                                                    <option value="353">Europe/Uzhgorod (GMT+03:00) Uzhgorod</option>
+                                                    <option value="354">Europe/Zaporozhye (GMT+03:00) Zaporozhye</option>
+                                                    <option value="355">Asia/Dubai (GMT+04:00) Dubai</option>
+                                                    <option value="356">Indian/Mahe (GMT+04:00) Mahe</option>
+                                                    <option value="357">Indian/Mauritius (GMT+04:00) Mauritius</option>
+                                                    <option value="358">Indian/Reunion (GMT+04:00) Reunion</option>
+                                                    <option value="359">Europe/Samara (GMT+04:00) Samara</option>
+                                                    <option value="360">Asia/Aqtau (GMT+05:00) Aqtau</option>
+                                                    <option value="361">Asia/Aqtobe (GMT+05:00) Aqtobe</option>
+                                                    <option value="362">Asia/Ashgabat (GMT+05:00) Ashgabat</option>
+                                                    <option value="363">Asia/Dushanbe (GMT+05:00) Dushanbe</option>
+                                                    <option value="364">Indian/Kerguelen (GMT+05:00) Kerguelen</option>
+                                                    <option value="365">Indian/Maldives (GMT+05:00) Maldives</option>
+                                                    <option value="366">Antarctica/Mawson (GMT+05:00) Mawson</option>
+                                                    <option value="367">Asia/Oral (GMT+05:00) Oral</option>
+                                                    <option value="368">Asia/Samarkand (GMT+05:00) Samarkand</option>
+                                                    <option value="369">Asia/Colombo (GMT+05:30) Colombo</option>
+                                                    <option value="370">Asia/Bishkek (GMT+06:00) Bishkek</option>
+                                                    <option value="371">Indian/Chagos (GMT+06:00) Chagos</option>
+                                                    <option value="372">Asia/Omsk (GMT+06:00) Omsk</option>
+                                                    <option value="373">Asia/Qyzylorda (GMT+06:00) Qyzylorda</option>
+                                                    <option value="374">Asia/Thimphu (GMT+06:00) Thimphu</option>
+                                                    <option value="375">Antarctica/Vostok (GMT+06:00) Vostok</option>
+                                                    <option value="376">Indian/Cocos (GMT+06:30) Cocos</option>
+                                                    <option value="377">Asia/Rangoon (GMT+06:30) Rangoon</option>
+                                                    <option value="378">Indian/Christmas (GMT+07:00) Christmas</option>
+                                                    <option value="379">Antarctica/Davis (GMT+07:00) Davis</option>
+                                                    <option value="380">Asia/Ho_Chi_Minh (GMT+07:00) Ho Chi Minh</option>
+                                                    <option value="381">Asia/Novokuznetsk (GMT+07:00) Novokuznetsk</option>
+                                                    <option value="382">Asia/Phnom_Penh (GMT+07:00) Phnom Penh</option>
+                                                    <option value="383">Asia/Pontianak (GMT+07:00) Pontianak</option>
+                                                    <option value="384">Asia/Vientiane (GMT+07:00) Vientiane</option>
+                                                    <option value="385">Asia/Brunei (GMT+08:00) Brunei</option>
+                                                    <option value="386">Antarctica/Casey (GMT+08:00) Casey</option>
+                                                    <option value="387">Asia/Chita (GMT+08:00) Chita</option>
+                                                    <option value="388">Asia/Hovd (GMT+08:00) Hovd</option>
+                                                    <option value="389">Asia/Kuching (GMT+08:00) Kuching</option>
+                                                    <option value="390">Asia/Macau (GMT+08:00) Macau</option>
+                                                    <option value="391">Asia/Makassar (GMT+08:00) Makassar</option>
+                                                    <option value="392">Asia/Manila (GMT+08:00) Manila</option>
+                                                    <option value="393">Asia/Shanghai (GMT+08:00) Shanghai</option>
+                                                    <option value="394">Asia/Pyongyang (GMT+08:30) Pyongyang</option>
+                                                    <option value="395">Australia/Eucla (GMT+08:45) Eucla</option>
+                                                    <option value="396">Asia/Choibalsan (GMT+09:00) Choibalsan</option>
+                                                    <option value="397">Asia/Dili (GMT+09:00) Dili</option>
+                                                    <option value="398">Asia/Jayapura (GMT+09:00) Jayapura</option>
+                                                    <option value="399">Asia/Khandyga (GMT+09:00) Khandyga</option>
+                                                    <option value="400">Pacific/Palau (GMT+09:00) Palau</option>
+                                                    <option value="401">Australia/Broken_Hill (GMT+09:30) Broken Hill</option>
+                                                    <option value="402">Pacific/Chuuk (GMT+10:00) Chuuk</option>
+                                                    <option value="403">Australia/Currie (GMT+10:00) Currie</option>
+                                                    <option value="404">Antarctica/DumontDUrville (GMT+10:00) DumontDUrville</option>
+                                                    <option value="405">Australia/Lindeman (GMT+10:00) Lindeman</option>
+                                                    <option value="406">Pacific/Saipan (GMT+10:00) Saipan</option>
+                                                    <option value="407">Asia/Sakhalin (GMT+10:00) Sakhalin</option>
+                                                    <option value="408">Asia/Ust-Nera (GMT+10:00) Ust-Nera</option>
+                                                    <option value="409">Australia/Lord_Howe (GMT+10:30) Lord Howe</option>
+                                                    <option value="410">Pacific/Bougainville (GMT+11:00) Bougainville</option>
+                                                    <option value="411">Pacific/Efate (GMT+11:00) Efate</option>
+                                                    <option value="412">Pacific/Guadalcanal (GMT+11:00) Guadalcanal</option>
+                                                    <option value="413">Pacific/Kosrae (GMT+11:00) Kosrae</option>
+                                                    <option value="414">Antarctica/Macquarie (GMT+11:00) Macquarie</option>
+                                                    <option value="415">Pacific/Norfolk (GMT+11:00) Norfolk</option>
+                                                    <option value="416">Pacific/Noumea (GMT+11:00) Noumea</option>
+                                                    <option value="417">Pacific/Pohnpei (GMT+11:00) Pohnpei</option>
+                                                    <option value="418">Asia/Srednekolymsk (GMT+11:00) Srednekolymsk</option>
+                                                    <option value="419">Asia/Anadyr (GMT+12:00) Anadyr</option>
+                                                    <option value="420">Pacific/Funafuti (GMT+12:00) Funafuti</option>
+                                                    <option value="421">Asia/Kamchatka (GMT+12:00) Kamchatka</option>
+                                                    <option value="422">Pacific/Kwajalein (GMT+12:00) Kwajalein</option>
+                                                    <option value="423">Pacific/Majuro (GMT+12:00) Majuro</option>
+                                                    <option value="424">Antarctica/McMurdo (GMT+12:00) McMurdo</option>
+                                                    <option value="425">Pacific/Nauru (GMT+12:00) Nauru</option>
+                                                    <option value="426">Pacific/Tarawa (GMT+12:00) Tarawa</option>
+                                                    <option value="427">Pacific/Wake (GMT+12:00) Wake</option>
+                                                    <option value="428">Pacific/Wallis (GMT+12:00) Wallis</option>
+                                                    <option value="429">Pacific/Chatham (GMT+12:45) Chatham</option>
+                                                    <option value="430">Pacific/Apia (GMT+13:00) Apia</option>
+                                                    <option value="431">Pacific/Enderbury (GMT+13:00) Enderbury</option>
+                                                    <option value="432">Pacific/Fakaofo (GMT+13:00) Fakaofo</option>
+                                                    <option value="433">Pacific/Tongatapu (GMT+13:00) Tongatapu</option>
+                                                    <option value="434">Pacific/Kiritimati (GMT+14:00) Kiritimati</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                            <div class="p-20">
+                                                
+                                                <div class=" w-p-100 prr p-10-0 display-flex-normal">
+                                                    <label class="container">
+                                                        <input type="checkbox" checked="checked" id="sub">
+                                                        <span class="checkmark"></span>
+                                                      </label>
+                                                    <label class="p-l-40 cursor-pointer" for="sub">
+                                                        Subscribe to StudyDaddy newsletter emails
+                                                    </label>
+                                                </div>
+
+                                                <div class=" w-p-100 prr p-10-0 display-flex-normal">
+                                                    <label class="container">
+                                                        <input type="checkbox" checked="checked" id="subr">
+                                                        <span class="checkmark"></span>
+                                                      </label>
+                                                    <label class="p-l-40 cursor-pointer" for="subr">
+                                                        Receive email notification for incoming private messages
+                                                    </label>
+                                                </div>
+
+                                                <div class=" w-p-100 prr p-10-0 display-flex-normal">
+                                                    <label class="container">
+                                                        <input type="checkbox" checked="checked" id="subu">
+                                                        <span class="checkmark"></span>
+                                                      </label>
+                                                    <label class="p-l-40 cursor-pointer" for="subu">
+                                                        Receive updates, recommendation and special offers
+                                                    </label>
+                                                </div>
+
+                                                
+
+
+
+                                               
+
+
+                                            </div>
+                                        </div>
+                                        <div class=" p-10-0">
+                                            <div class="siteButton text-center">
+                                                <button class="">UPDATE INFORMATION</button>
+                                            </div>
+                                            <div class="p-10 f-s-12 text-center">
+                                                <p>*To change your Username or Email please contact support team</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-2  dn">
+                    <div class="b-l b-b">
+                        <div class="prr">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="in">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 1</p>
+                                
+                                <label for="in" class="accordiontab cursor-pointer p-10-0 default-color">Ask a question</label>
+
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Type your question details, attach additional files, set up a deadline, and enter the amount you’re willing to pay for an answer.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc ">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step2">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 2</p>
+                                <label for="step2" class="accordiontab cursor-pointer p-10-0 default-color">Choose a tutor</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox" id="step3">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 3</p>
+                                <label for="step3" class="accordiontab cursor-pointer p-10-0 default-color">Reserve money</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc ">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step4">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 4</p>
+                                <label for="step4" class="accordiontab cursor-pointer p-10-0 default-color">Get your answer</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step5">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 5</p>
+                                <label for="step5" class="accordiontab cursor-pointer p-10-0 default-color">Give feedback</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        {% include 'partials/footer.html' %} 
+    </div>
+
+
+    
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script>
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+        window.onscroll = ()=>{
+
+            
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+            {
+                $("header").addClass("headerBg")
+            }
+
+            else
+            {
+                $("header").removeClass("headerBg")
+
+            }
+          }
+          if(screen.width > 888)
+          {
+              $(".mobile").addClass("hide-m")
+          }
+          else
+          {
+              $(".mobile").removeClass("hide-m")
+
+          }
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 1000)
+    </script>
+</body>
+</html>

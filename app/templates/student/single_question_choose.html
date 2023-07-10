@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if task %}
+        <h1>{{ task.title }}</h1>
+        <p>{{ task.content|safe }} </p>
+
+        {% for file in files %}
+            <a href="/static/HWAttachments/{{file.filename}}" target="_blank">
+                {{ file.filename }}</a>,&nbsp;
+        {% endfor %}
+        <p>Proposals from tutors to complete your question</p>
+        <table>
+            <tr>
+                <th>Bid Amount</th>
+                <th>Bid Message</th>
+                <th>Tutor Name</th>
+                <th>Accept</th>
+                <th>Chat</th>
+            </tr>
+            {% for bid, tutor, user in bid_task %}
+                <tr>
+                    <td>{{ bid.bid_amount }}</td>
+                    <td><a href="{{ url_for('getChatTutor', task_id=task.id, bid_id=bid.id) }}">{{ bid.message }}</a></td>
+                    <td>{{ user.username }}</td>
+                    <td><a href="">Accept Bid</a></td>
+                    <td><a href="">Chat with Tutor</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <h1>Chat</h1>
+        <div id="chat-messages"></div>
+        <form id="chat-form">
+            <input type="text" id="message-input" />
+            <button type="submit">Send</button>
+        </form>
+    {% else %}
+        <p>Task not found.</p>
+    {% endif %}
+</body>
+</html>

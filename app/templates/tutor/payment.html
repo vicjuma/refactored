@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>Post a tutorial</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+      <link href="/static/css/tutor.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/daterangepicker.min.css">
+      <script type="text/javascript">
+         window.daterangepicker_8d91d35a = {
+            "timePicker": false,
+            "timePickerIncrement": 30,
+            "showDropdowns": true,
+            "locale": {
+                "format": "YYYY-MM-DD"
+            },
+            "ranges": {
+                "Today": [moment().startOf('day'), moment()],
+                "Yesterday": [moment().startOf('day').subtract(1, 'days'), moment().endOf('day').subtract(1, 'days')],
+                "Last 7 Days": [moment().startOf('day').subtract(6, 'days'), moment()],
+                "Last 30 Days": [moment().startOf('day').subtract(29, 'days'), moment()],
+                "This Month": [moment().startOf('month'), moment().endOf('month')],
+                "Last Month": [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                "All time": ['1970-01-01', moment()]
+            },
+            "opens": "right",
+            "autoUpdateInput": false
+        }; </script>
+        <script>
+         (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:163728,hjsv:5};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'/ / static.hotjar.com / c / hotjar - ','.js ? sv = ');</script>
+          <script > ! function(f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function() {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2292920331025416');
+        fbq('track', 'PageView');
+      </script>
+    
+     
+      <!-- <link href="./cabinet_tutor_stylesheets.css" rel="stylesheet"> -->
+   </head>
+   <body>
+      <!-- wrapper -->
+      <div class="wrapper spacer js-wrapper">
+      <div class="top-part">
+         <!-- header -->
+         {% include 'partials/tuts_header.html' %}
+         <!-- page -->
+         <section class="my-page my-page_type_no-border">
+            <div class="inner">
+               <div class="my-page__big-inner">
+                  <div class="my-page__tabs-wrapper">
+                     <div class="my-page__tabs js-tabs" data-tabgroup="first-tab-group">
+                        <div class="my-page__tabs-item">
+                           <a class="my-page__tabs-link my-page__tabs-link_state_active" href="/api/users/payments/view">Transactions</a>                                
+                        </div>
+                        <!--href="#tab1" js-tab-->
+                        <div class="my-page__tabs-item">
+                           <a class="my-page__tabs-link" href="/api/users/payments/withdraw">Withdraw</a>                                
+                        </div>
+                     </div>
+                     <span class="my-page__tabs-toggler js-tab-toggler"><i class="fa fa-angle-left"></i> Transactions</span>
+                  </div>
+                  <div class="all-stud__tabs-content">
+                     <div class="all-stud__tabs-content-item transactions_block">
+                        <div class="form__row">
+                           <!-- finance -->
+                           <div class="withdrawals-finance">
+                              <span class="withdrawals-finance__label">Account balance:</span>
+                              <!-- available -->
+                              <div class="ref-payout__available withdrawals-finance__item">
+                                 Available: <span class="ref-payout__available-price">$18.00</span>
+                              </div>
+                              <!-- pending -->
+                              <div class="ref-payout__available withdrawals-finance__item withdrawals-finance__item_type_pending">
+                                 Pending: <span class="ref-payout__pending-price">$0.00</span>
+                              </div>
+                           </div>
+                           <!-- date -->
+                           <div id="w0-container" class="form__date-picker withdrawals-finance__date-picker">
+                              <input type="text" id="w0" class="form-control" name="dateRange" value="" data-krajee-daterangepicker="daterangepicker_8d91d35a"><i class="fa fa-calendar"></i>
+                           </div>
+                        </div>
+                        <!-- table will be hidden on tablet -->
+                        <div class="my-page__table-outer_state_faded my-page__table_type_hidden-tablet">
+                           <div id="w1" class="grid-view">
+                              <table class="my-page__table">
+                                 <thead>
+                                    <tr class="sorted-header">
+                                       <th>Time</th>
+                                       <th><a href="./payment.html?sort=order_id" data-sort="order_id">Order ID</a></th>
+                                       <th>Type</th>
+                                       <th>Title</th>
+                                       <th><a href="./payment.html?sort=paid" data-sort="paid">Amount</a></th>
+                                       <th>Fee</th>
+                                       <th><a href="./payment.html?sort=net" data-sort="net">Earned</a></th>
+                                       <th>Status</th>
+                                    </tr>
+                                 </thead>
+                           
+                                 <script src="/static/js/daterangepicker.min.js"></script>    
+                                 <tbody>
+                                   
+                               
+                                    <tr data-key="55719">
+                                       <td>
+                                          <nobr>2022-12-13 13:51</nobr>
+                                       </td>
+                                       <td>567919</td>
+                                       <td>Paid</td>
+                                       <td><a href="../question.html">instructions in the attached file</a></td>
+                                       <td>$10.00</td>
+                                       <td>50%</td>
+                                       <td>$5.00</td>
+                                       <td><span style="color:#49ae12">Available</span></td>
+                                    </tr>
+                                   
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                        <!-- list will be show on mobile -->
+                        <ul id="w2" class="my-page__list_type_tablet">
+                           <li class="my-page__list-item">
+                              <div class="all-stud__list-top">
+                                 <span class="my-page__gray-label all-stud__order-label ">2023-02-22 16:16</span>
+                                 <span class="my-page__gray-label all-stud__order-label ">Order ID: 569746</span>
+                              </div>
+                              <span class="my-page__orange-label my-page__top-label">Paid</span>
+                              <div class="all-stud__list-options">
+                                 <p class="all-stud__list-option">
+                                    <span class="all-stud__list-label">Title:</span> <a href="../log-question.html">Please reply to each question with at least 200 w...</a>        
+                                 </p>
+                                 <p class="all-stud__list-option">
+                                    <span class="all-stud__list-label">Amount:</span> $10.00        
+                                 </p>
+                                 <p class="all-stud__list-option">
+                                    <span class="all-stud__list-label">Free:</span> 50%
+                                 </p>
+                                 <p class="all-stud__list-option">
+                                    <span class="all-stud__list-label">Earned:</span> $5.00        
+                                 </p>
+                              </div>
+                           </li>
+                          
+                        </ul>
+                        <div class="pager">
+                        </div>
+                        <!-- answer faq -->
+                        <div class="finished-page__faq-wrapper transactions_faq">
+                           <p class="finished-page__faq-heading">FAQ</p>
+                           <ul class="my-faq finished-page__faq-list">
+                              
+                              <li class="my-faq__item js-faq-item">
+                                 <p class="my-faq__question js-faq-question">What are the payout fees?</p>
+                                 <div class="my-faq__answer js-faq-answer">
+                                    <p>
+                                       Beware of additional payment fees. For example, there is a payment-processing
+                                       fee (2.5% +$0.25) for every transfer, charged in addition to website fees.
+                                       This fee reflects the costs our platform has to pay for the transactions made there.
+                                       However, such fees are normally much lower than those you have to pay when receiving your salary.
+                                    </p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+      {% include 'partials/tutor_footer.html' %}
+
+      <script src="/static/js/jQuery.js"></script>
+      <script src="/static/js/scripts.min.js"></script>
+      <script src="/static/js/daterangepicker.min.js"></script>
+      <script type="text/javascript">
+         var domElementChanger = new GlobalElementChanger();
+         var socketConfig = $('#socket-config');
+         var chatSocket = new ChatSocket(
+             {
+                 webSocketUrl : socketConfig.data('socket-url'),
+                 userId : socketConfig.data('user-id'),
+                 domElementChanger : domElementChanger,
+                 userRequest : ['proposalMessage'],
+                 isCheckOnline : false
+             });
+            </script>
+            <script type="text/javascript">jQuery(document).ready(function () {
+               if (jQuery('#w0').data('daterangepicker')) { jQuery('#w0').daterangepicker('destroy'); }
+               jQuery("#w0-container").daterangepicker(daterangepicker_8d91d35a, function(start,end,label){var val=start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');jQuery("#w0-container").find('.range-value').html(val);jQuery("#w0").val(val);jQuery("#w0").trigger('change');});
+               jQuery("#w0-container").on('apply.daterangepicker', function(e, date) {
+               var actionUrl = "/payment/transactions?";
+               if(date.startDate.year() != 1970) {
+                                 actionUrl += "startDate=" + date.startDate.format("YYYY-MM-DD") + "&endDate=" + date.endDate.format("YYYY-MM-DD");
+                             } else {
+                           $("input[name=\"dateRange\"]").val("");
+                                 //remove last "?" mark
+                                 actionUrl = actionUrl.substring(0, actionUrl.length - 1);
+                             }
+                             window.location.href = actionUrl
+                          });
+     
+     jQuery('#w1').yiiGridView({"filterUrl":"\/payment\/transactions","filterSelector":"#w1-filters input, #w1-filters select"});
+     });</script>
+   </body>
+</html>

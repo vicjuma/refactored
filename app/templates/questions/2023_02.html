@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/nav.css">
+      <link rel="stylesheet" href="/static/css.css">
+      <link href="https://studydaddy.com/ra.min.css?v1.23" rel="stylesheet">
+   </head>
+   <body>
+      <style>
+         .Weeks:nth-child(1) {padding:10px 0 20px;}
+         .dayOfWeek {display:inline-block;width:14%; text-align: center;}
+         .dayOfWeek a {display: block; max-width:90%; width:100%;padding: 20px 0;}
+         .WeekName {font-size:18px;
+         font-weight: 600;}
+         span.dayOfWeek.not_current_month { padding: 20px 0;color: #999999;}
+         .calendar { display: block; max-width: 800px; margin: 0 auto; border: 1px solid #0fb8ff; padding: 10px 20px; border-radius: 6px; }
+         .month_block a { display: block; width: 80%; margin: 0 auto; padding: 5px 0; }
+         .dayOfWeek a:hover {text-decoration: underline;}
+         .breadcrumbs { font-size: 16px; }
+         .breadcrumbs__item:after { color: #999; font-size: 16px; padding: 0px 10px; }
+         .breadcrumbs>span:nth-last-child(1) .breadcrumbs__item:after {display:none;}
+         .addPadding {padding: 20px 0;}
+         @media (max-width:766px) {
+         .breadcrumbs {
+         margin-bottom: 30px;
+         }
+         .WeekName {
+         font-size: 14px;
+         }
+         }
+         .faqIco a
+         {
+            padding-left: 10px;
+         }
+      </style>
+      <style>
+         header{
+         background: #fff !important;
+         margin-bottom:400px;
+         }
+      </style>
+      <div class="">
+         <header class="b">
+            <nav>
+               <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+               <div class="navigation-bar-wrapper">
+                  <input type="checkbox"  name="openandclose" id="openandclose">
+                  <div class="portfolio-logo logo">
+                     <a href="/">
+                        <h1>Freelance Bay</h1>
+                     </a>
+                  </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                  <div class="mobile" style="display: flex;gap:10px;">
+                     <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                     <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                           <div class="menu"></div>
+                           <div class="menu mid"></div>
+                           <div class="menu"></div>
+                        </div>
+                     </label>
+                     <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </header>
+      </div>
+      <!-- wrapper -->
+      <div id="page" class="inner">
+         <div id="main" class="container">
+            <article class="article js-content">
+                <!-- content -->
+                    <div class="teaching-model__text">
+                        <span class="sidebar__hide-button js-close-sidebar"><i class="fa fa-chevron-right"></i></span>
+                            <div class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                         <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__item" href="/" title="StudyDaddy" itemprop="item"><span itemprop="name" class="breadcrumbs__link">StudyDaddy</span></a>                <meta itemprop="position" content="1">
+                </span>
+                         <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__item" href="/sitemap" title="Homework Archive" itemprop="item"><span itemprop="name" class="breadcrumbs__link">Homework Archive</span></a>                <meta itemprop="position" content="2">
+                </span>
+                         <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__item" href="/sitemap/2023" title="2023" itemprop="item"><span itemprop="name" class="breadcrumbs__link">2023</span></a>                <meta itemprop="position" content="3">
+                </span>
+                         <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumbs__item" href="/sitemap/2023/02" title="February" itemprop="item"><span itemprop="name" class="breadcrumbs__link">February</span></a>                <meta itemprop="position" content="4">
+                </span>
+                </div>
+                        <h1 class="content__title">Homework Archive - 02 February 2023</h1>
+                                                <ul class="question_list listing">
+                                                   <li class="faqIco"><a href="../question.html">"4.4 Factors Affecting Water Use" is which of the following?</a></li>
+<li class="faqIco"><a href="../question.html">Write a case analysis of a positive or negative incident or experience on a team that you have been a part of, either as a member or as an interested bystander. Use concepts and theories from this cou</a></li>
+<li class="faqIco"><a href="../question.html">Exam Content The main functions of the police include patrol work and crime prevention. Patrol work is considered the backbone of policing, as patrol officers interact with the public throughout their</a></li>
+<li class="faqIco"><a href="../question.html">In this assignment, you will read and then write a reaction to a news article. To locate a news article, you have the option of using many internet resources (just a few suggested web sites below): ww</a></li>
+<li class="faqIco"><a href="../question.html">Two page summary 1.5 Space Cover sheet and APA Version 7 Citation Required Consider: Response rates Preparation Scale of Measures  Types of statistics Drawing conclusions    USE ALL SUBHEADINGS ! (Und</a></li>
+<li class="faqIco"><a href="../question.html">Download this PowerPoint shell: Lab Report 06 Shell.pptx  Download Lab Report 06 Shell.pptx Link to the Google Photo Album: https://photos.app.goo.gl/hUgnt8iVkY5WTCjD7  Links to an external site.  Car</a></li>
+<li class="faqIco"><a href="../question.html">A.  List and explain three ways that the dermis helps us cope with disruptions to temperature homeostasis. Identify the specific structures and what they do. Write your answer as a paragraph. (3 pt) B</a></li>
+<li class="faqIco"><a href="../question.html">You are to write a ten-page research paper on one of the following topics.  The ten pages are in addition to the title page, reference page, and abstract.  You Must Use the APA style of writing.  This</a></li>
+<li class="faqIco"><a href="../question.html">In May 2018, in the wake of a global uproar after two black men in a Philadelphia Starbucks were arrested while awaiting a friend, Starbucks closed its approximately eight thousand U.S. stores to cond</a></li>
+<li class="faqIco"><a href="../question.html">Short Module Assignment for Anthropology class. No word limit only answering questions for each module</a></li>
+<li class="faqIco"><a href="../question.html">Assessment TraitsRequires LopeswriteAssessment Description In Topic 3, you read three articles about the skills of the researcher. In this assignment, you will identify three themes common to the arti</a></li>
+<li class="faqIco"><a href="../question.html">I need 250-word answer with references, for each question.   1.What considerations must be given to the selection of a quantitative methodology for a research study? Based on what you know now, which</a></li>
+<li class="faqIco"><a href="../question.html">I need 250-word answer with references, for each question.   1.What considerations must be given to the selection of a quantitative methodology for a research study? Based on what you know now, which</a></li>
+
+                                                   <li class="faqIco"><a href="../question.html">"4.4 Factors Affecting Water Use" is which of the following?</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Write a case analysis of a positive or negative incident or experience on a team that you have been a part of, either as a member or as an interested bystander. Use concepts and theories from this cou</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Exam Content The main functions of the police include patrol work and crime prevention. Patrol work is considered the backbone of policing, as patrol officers interact with the public throughout their</a></li>
+                                                   <li class="faqIco"><a href="../question.html">In this assignment, you will read and then write a reaction to a news article. To locate a news article, you have the option of using many internet resources (just a few suggested web sites below): ww</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Two page summary 1.5 Space Cover sheet and APA Version 7 Citation Required Consider: Response rates Preparation Scale of Measures  Types of statistics Drawing conclusions    USE ALL SUBHEADINGS ! (Und</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Download this PowerPoint shell: Lab Report 06 Shell.pptx  Download Lab Report 06 Shell.pptx Link to the Google Photo Album: https://photos.app.goo.gl/hUgnt8iVkY5WTCjD7  Links to an external site.  Car</a></li>
+                                                   <li class="faqIco"><a href="../question.html">A.  List and explain three ways that the dermis helps us cope with disruptions to temperature homeostasis. Identify the specific structures and what they do. Write your answer as a paragraph. (3 pt) B</a></li>
+                                                   <li class="faqIco"><a href="../question.html">You are to write a ten-page research paper on one of the following topics.  The ten pages are in addition to the title page, reference page, and abstract.  You Must Use the APA style of writing.  This</a></li>
+                                                   <li class="faqIco"><a href="../question.html">In May 2018, in the wake of a global uproar after two black men in a Philadelphia Starbucks were arrested while awaiting a friend, Starbucks closed its approximately eight thousand U.S. stores to cond</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Short Module Assignment for Anthropology class. No word limit only answering questions for each module</a></li>
+                                                   <li class="faqIco"><a href="../question.html">Assessment TraitsRequires LopeswriteAssessment Description In Topic 3, you read three articles about the skills of the researcher. In this assignment, you will identify three themes common to the arti</a></li>
+                                                   <li class="faqIco"><a href="../question.html">I need 250-word answer with references, for each question.   1.What considerations must be given to the selection of a quantitative methodology for a research study? Based on what you know now, which</a></li>
+                                                   <li class="faqIco"><a href="../question.html">I need 250-word answer with references, for each question.   1.What considerations must be given to the selection of a quantitative methodology for a research study? Based on what you know now, which</a></li>
+                                                   <ul>
+                                         </ul></ul></div>
+            </article></div>
+      </div>
+      <style>
+         .year-block {
+         display: block;
+         text-align: center;
+         }
+         .year-block h2 {font-weight: 800; margin: 25px 0 5px; padding:0 10px;}
+         .year-block h2 a {padding: 0 10px; background: #fff; font-size:24px;
+         line-height: 24px;}
+         .year-block h2:after { content: ''; background: #ccc; width: 100%; height: 1px; display: block; margin: -12px 0 20px; }
+         .month_block {
+         display: inline-block;
+         width: 80px;
+         }
+         .month_block a {
+         display: block;width:90%;margin:0 auto; padding: 10px 0px;
+         }
+         .breadcrumbs { font-size: 16px; }
+         .breadcrumbs__item:after { color: #999; font-size: 16px; padding: 0px 10px; }
+         .breadcrumbs>span:nth-last-child(1) .breadcrumbs__item:after {display:none;}
+         @media (max-width:1024px) {
+         .month_block a, span.month_block.non-active {padding:15px 0; margin:5px 0;}
+         .month_block {
+         display: inline-block;
+         min-width: 80px;
+         width:16%;
+         }
+         }
+         @media (max-width:766px) {
+         .breadcrumbs {
+         margin-bottom: 30px;
+         }
+         }
+         @media (max-width:540px) {
+         .month_block {width:25%;}
+         }
+      </style>
+      <div class="p-t-0">
+         <div class="">
+             <div class="">
+                 <div id="footer" class="footer  f-s-12 footer_type_my js-footer" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+                     <div class="" style="display: flex; flex-direction:column">
+                         <div class="col-10 m-a">
+                             <ul class=" p-20 footer__links ul-reset display-flex-normal space-between fwm">
+                                     <li class="footer__link p-0-20 wp50"><a href="/homework/answers" title="Homework Answers">Homework Answers</a></li>
+                                     <li class="footer__link  p-0-20 wp50"><a href="/ask/a/question" title="Ask a Question" rel="nofollow">Ask a Question</a></li>                    
+                                     <li class="footer__link p-0-20 wp50"><a href="/faqs" title="FAQ" itemprop="url">FAQ</a></li>
+                                     <li class="footer__link p-0-20 wp50"><a href="/contact/us" title="Contact Us" itemprop="url">Contact Us</a></li>
+                                     <li class="footer__link p-0-20 wp50"><a href="/privacy/policies" title="Privacy Policy" itemprop="url">Privacy Policy</a></li>
+                                     <li class="footer__link p-0-20 wp50"><a href="/dmca/notice" title="DMCA" itemprop="url">DMCA</a></li>
+                                     <li class="footer__link p-0-20 wp50"><a href="/terms" title="Terms of Use" itemprop="url">Terms of Use</a></li>
+                                 </ul>        </div>
+                         <div class="display-flex ">
+                             Copyright © 2023&nbsp;<a  href="./index.html">Freelance</a></div>
+                             <div class="copyright copyright_company display-flex text-center p-10" style="line-height: 20px;">
+                                         Worbert Limited -  All right reserved.<br>
+                             20 Christou Tsiarta Elma 2, 22, 1077, Nicosia, Cyprus
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+      <div class="mo-signup"></div>
+      <script src="/static/js/jQuery.js"></script>
+      <script src="/static/js/freelance.js"></script>
+      <script>
+         function toogleSearch()
+         {
+             $( ".search" ).toggleClass( "searchtransition" )
+             $( ".search-mobile" ).toggleClass( "searchtransition" )
+         
+             
+         }
+         
+         window.onscroll = ()=>{
+         
+             
+             if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+             {
+                 $("header").addClass("headerBg")
+             }
+         
+             else
+             {
+                 $("header").removeClass("headerBg")
+         
+             }
+           }
+           if(screen.width > 888)
+           {
+               $(".mobile").addClass("hide-m")
+           }
+           else
+           {
+               $(".mobile").removeClass("hide-m")
+         
+           }
+         
+           setInterval(()=>{
+             if(screen.width > 888)
+             {
+                 $(".mobile").addClass("hide-m")
+             }
+             else
+             {
+                 $(".mobile").removeClass("hide-m")
+         
+             }
+           }, 1000)
+      </script>
+   </body>
+</html>

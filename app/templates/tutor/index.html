@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-74528521-1', 'auto');ga('require', 'GTM-NSBTHQL');ga('send', 'pageview');
+        </script>
+        <title>Post a tutorial</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+        <link href="/static/css/tutor.css" rel="stylesheet">
+        <!-- <link href="./cabinet_tutor_stylesheets.css" rel="stylesheet"> -->
+    </head>
+<body>
+
+<!-- wrapper -->
+<div class="wrapper spacer js-wrapper">
+    <div class="top-part">
+        
+            <!-- header -->
+            {% include 'partials/tuts_header.html' %}
+            <!-- page -->
+            <section class="my-page my-page_type_no-border">
+               <div class="inner">
+                  <div class="my-page__big-inner">
+                     <div class="my-page__tabs-wrapper">
+                        <div class="my-page__tabs js-tabs" data-tabgroup="first-tab-group">
+                           <div class="my-page__tabs-item">
+                              <a class="my-page__tabs-link my-page__tabs-link_state_active" href="{{ url_for('TutorProfile', username=user.username) }}">My account</a>                                
+                           </div>
+                           <!--href="#tab1" js-tab-->
+                           <div class="my-page__tabs-item">
+                              <a class="my-page__tabs-link" href="/api/users/tutor/feedback/view">My feedbacks</a>                                
+                           </div>
+                           <div class="my-page__tabs-item">
+                              <a class="my-page__tabs-link" href="/api/users/tutor/password/update">Change password</a>                                
+                           </div>
+                           <div class="my-page__tabs-item">
+                              <a class="my-page__tabs-link" href="/api/users/tutor/emails/subscribe">Subscribe</a>                                
+                           </div>
+                        </div>
+                        <span class="my-page__tabs-toggler js-tab-toggler"><i class="fa fa-angle-left"></i> My account</span>
+                     </div>
+                     <div class="all-stud__tabs-content js-tabs-content js-main-account" id="first-tab-group">
+                        <div style="display: block;" class="all-stud__tabs-content-item js-tabs-item" id="tab1">
+                           <div class="account__wrapper">
+                              <!-- photo & status -->
+                              <div class="account__photo">
+                                 <img class="account-page__avatar-picture" src="/static/images/1.png" alt="ProfNandy">                                        
+                                 <p class="account__status account__status_type_online">Online</p>
+                              </div>
+                              <!-- account header -->
+                              <div class="account__header">
+                                 <div class="account__user-name account__header-item">ProfNandy</div>
+                                 <div class="account__header-rating account__header-item" data-toggle="tooltip" data-placement="top" title="Rated: 4.2 Feedback: 6">
+                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i>                                        
+                                 </div>
+                                 <div>
+                                    <span class="tutor-statistic__icon " data-toggle="tooltip" data-placement="top" title="Payment method verified"><i class="fa fa-check"></i></span>
+                                    <span class="tutor-statistic__icon " data-toggle="tooltip" data-placement="top" title="Phone verified"><i class="fa fa-phone"></i></span>
+                                    <span class="tutor-statistic__icon " data-toggle="tooltip" data-placement="top" title="Diploma verified"><i class="fa fa-graduation-cap"></i></span>
+                                    <span class="tutor-statistic__icon " data-toggle="tooltip" data-placement="top" title="Email verified"><i class="fa fa-at"></i></span>
+                                 </div>
+                                 <div class="account__header-edit">
+                                    <a class="js-edit-button" href="javascript:;"><i class="fa fa-pencil">&nbsp;</i>Edit</a>                                        
+                                 </div>
+                              </div>
+                              <!-- about  -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">About me:</p>
+                                 <p class="account_description">I am an expert tutor. I have top notch skills in the academic writing industry. I have more than 5 years experience working on different papers in varying fields. I have been providing original and A grade papers. I am an expert writer rated 100%. I am committed to giving quality and professional work. All the clients that I have worked with always come back for me and refer their friends due to my high quality work. I have also done lots of papers in various fields, therefore I believe I have all the knowledge and skills to handle assignments.</p>
+                              </div>
+                              <!-- expertise -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">My areas of expertise:</p>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> Art &amp; Design</span>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> Communications</span>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> English</span>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> Environmental Science</span>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> HR Management</span>
+                                 <span class="account__expertise-item"><i class="fa fa-check"></i> Social Science</span>
+                              </div>
+                              <!-- time zone -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">Default time zone:</p>
+                                 <p>America/Toronto (GMT-04:00) Toronto</p>
+                              </div>
+                              <!-- docs -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">My documents:</p>
+                                 <p class="account__file-row">Credentials:
+                                    <span class="account__file-item js-file-cont-228949">Charles Certificate.pdf                                                        &emsp;<i class="question-form__file-remove js-file-remove" data-file-id="228949"></i>
+                                    </span>
+                                 </p>
+                                 <p class="account__file-row">My passport ID:
+                                    <span class="account__file-item js-file-cont-228950">Charles Identity Card.pdf                                                        &emsp;<i class="question-form__file-remove js-file-remove" data-file-id="228950"></i>
+                                    </span>
+                                 </p>
+                              </div>
+                              <!-- email -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">My email*:</p>
+                                 <p><a href="" class="__cf_email__" data-cfemail="35565d544759504659545b565047050504755258545c591b565a58">[email&#160;protected]</a></p>
+                              </div>
+                              <!-- pp email -->
+                              <div class="account__info-block">
+                                 <p class="account__subtitle">My PayPal email*:</p>
+                                 <p><a href="" class="__cf_email__" data-cfemail="6a09020b18060f19060b04090f185a5a5b2a0d070b030644090507">[email&#160;protected]</a></p>
+                              </div>
+                              <p class="account__bottom-caption form__row-caption account__light-caption">*Private information is visible only to you </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="all-stud__tabs-content js-tabs-content js-edit-account" style="display: none">
+                        <div style="display: block;" class="all-stud__tabs-content-item">
+                           <div class="account__wrapper">
+                              <!-- photo & status -->
+                              <div class="account__photo">
+                                 <img class="account-page__avatar-picture js-ava" src="/static/images/1.png" alt="ProfNandy">                                
+                              </div>
+                              <!-- account header -->
+                              <div class="account__header">
+                                 <div class="account__user-name">Charles</div>
+                              </div>
+                              <div class="form__row">
+                                 <span class="button button_bordered_blue button_size_medium account-page__avatar-button js-choose-picture">
+                                 Choose your picture
+                                 </span>
+                              </div>
+                              <form id="teacher-profile-form" class="form" action="" method="post" enctype="multipart/form-data">
+                                 <div class="field-teacherprofileform-photofile" style="display:none">
+                                    <label class="control-label" for="teacherprofileform-photofile">My Picture</label>
+                                    <input type="file" id="teacherprofileform-photofile" class="js-upload-picture" name="TeacherProfileForm[photoFile]">
+                                    <p class="help-block help-block-error"></p>
+                                 </div>
+                                 <div class="form__row account__divider-row field-teacherprofileform-about required">
+                                    <label class="control-label" for="teacherprofileform-about">
+                                       <p class="form__label">About me: <span class="form__label-caption account__label-caption">(please, fill in the information about your education and skills. Minimum is 400 characters.)</span></p>
+                                    </label>
+                                    <textarea id="teacherprofileform-about" class="full-width" name="TeacherProfileForm[about]" rows="5">I am an expert tutor. I have top notch skills in the academic writing industry. I have more than 5 years experience working on different papers in varying fields. I have been providing original and A grade papers. I am an expert writer rated 100%. I am committed to giving quality and professional work. All the clients that I have worked with always come back for me and refer their friends due to my high quality work. I have also done lots of papers in various fields, therefore I believe I have all the knowledge and skills to handle assignments.</textarea>
+                                    <p class="help-block help-block-error"></p>
+                                 </div>
+                                 <div class="form__row field-teacherprofileform-categoryids required">
+                                    <span class="question-form__error-message"></span>
+                                    <p class="form__label">My areas of expertise: </p>
+                                    <ul class='question-form__categories'>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="1" value = "1"><label class="question-form__category" for="1">Accounting</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="3" value = "3"><label class="question-form__category" for="3">Applied Sciences</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="4" value = "4"><label class="question-form__category" for="4">Architecture and Design</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="5" value = "5"><label class="question-form__category" for="5">Art &amp; Design</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="6" value = "6"><label class="question-form__category" for="6">Biology</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="7" value = "7"><label class="question-form__category" for="7">Business &amp; Finance</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="8" value = "8"><label class="question-form__category" for="8">Calculus</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="9" value = "9"><label class="question-form__category" for="9">Chemistry</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="10" value = "10"><label class="question-form__category" for="10">Communications</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="11" value = "11"><label class="question-form__category" for="11">Computer Science</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="12" value = "12"><label class="question-form__category" for="12">Economics</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="15" value = "15"><label class="question-form__category" for="15">Engineering</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="16" value = "16"><label class="question-form__category" for="16">English</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="17" value = "17"><label class="question-form__category" for="17">Environmental Science</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="18" value = "18"><label class="question-form__category" for="18">Article Writing</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="19" value = "19"><label class="question-form__category" for="19">Film</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="20" value = "20"><label class="question-form__category" for="20">Foreign Languages</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="23" value = "23"><label class="question-form__category" for="23">Geography</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="24" value = "24"><label class="question-form__category" for="24">Geology</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="25" value = "25"><label class="question-form__category" for="25">Geometry</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="27" value = "27"><label class="question-form__category" for="27">Health &amp; Medical</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="28" value = "28"><label class="question-form__category" for="28">History</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="29" value = "29"><label class="question-form__category" for="29">HR Management</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="30" value = "30"><label class="question-form__category" for="30">Information Systems</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="31" value = "31"><label class="question-form__category" for="31">Law</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="32" value = "32"><label class="question-form__category" for="32">Literature</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="33" value = "33"><label class="question-form__category" for="33">Management</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="34" value = "34"><label class="question-form__category" for="34">Marketing</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="35" value = "35"><label class="question-form__category" for="35">Math</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="37" value = "37"><label class="question-form__category" for="37">Numerical Analysis</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="39" value = "39"><label class="question-form__category" for="39">Philosophy</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="40" value = "40"><label class="question-form__category" for="40">Physics</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="41" value = "41"><label class="question-form__category" for="41">Precalculus</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="42" value = "42"><label class="question-form__category" for="42">Political Science</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="43" value = "43"><label class="question-form__category" for="43">Psychology</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="44" value = "44"><label class="question-form__category" for="44">Programming</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="47" value = "47"><label class="question-form__category" for="47">Science</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox" checked="checked" name="TeacherProfileForm[categoryIds][]" id="48" value = "48"><label class="question-form__category" for="48">Social Science</label></li>
+                                       <li class="question-form__categories-item"><input type="checkbox"  name="TeacherProfileForm[categoryIds][]" id="51" value = "51"><label class="question-form__category" for="51">Statistics</label></li>
+                                    </ul>
+                                 </div>
+                                 <div class="form__row field-teacherprofileform-timezoneid required">
+                                    <p class="help-block help-block-error"></p>
+                                    <label class="control-label" for="teacherprofileform-timezoneid">
+                                       <p class="form__label">Default time zone:</p>
+                                    </label>
+                                    <div class='custom-select account__timezone-select'>
+                                       <select id="teacherprofileform-timezoneid" class="form-control" name="TeacherProfileForm[timeZoneId]">
+                                          <option value="1">Pacific/Midway (GMT-11:00) Midway Island</option>
+                                          <option value="2">US/Samoa (GMT-11:00) Samoa</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <!-- docs -->
+                                 <div class="form__row">
+                                    <p class="form__label">My documents:</p>
+                                    <p class="account__file-row">
+                                    <div class="field-teacherprofileform-diplomafiles">
+                                       <span class="help-block2"></span>
+                                       <div style='display: none'><input type="file" id="teacherprofileform-diplomafiles" class="js-input-docks" name="TeacherProfileForm[diplomaFiles][]" multiple="multiple"></div>
+                                    </div>
+                                    <a class="js-a-docks" href="javascript:;">Attach Credentials</a>                                            </p>
+                                    <p class="account__file-row js-docks-attached">
+                                       <span class="account__file-item">Charles Certificate.pdf</span><br>
+                                    </p>
+                                    <p class="account__file-row">
+                                    <div class="field-teacherprofileform-passportfile">
+                                       <span class="help-block2"></span>
+                                       <div style='display: none'><input type="file" id="teacherprofileform-passportfile" class="js-input-passport" name="TeacherProfileForm[passportFile]"></div>
+                                    </div>
+                                    <a class="js-a-passport" href="javascript:;">Load My Passport ID</a>                                            </p>
+                                    <p class="account__file-row js-passport-attached">
+                                       <span class="account__file-item">Charles Identity Card.pdf<br>
+                                    </p>
+                                 </div>
+                                 <!-- email -->
+                                 <div class="form__row account__info-block_type_inline">
+                                    <p class="form__label">My email*:</p>
+                                    ch<a href="" class="__cf_email__" data-cfemail="5736253b32243b363934322567676617303a363e3b7934383a">[email&#160;protected]</a>                                        
+                                 </div>
+                                 <!-- pp email -->
+                                 <div class="form__row account__info-block_type_inline">
+                                    <p class="form__label">My PayPal email*:</p>
+                                    ch<a href="" class="__cf_email__" data-cfemail="f8998a949d8b9499969b9d8ac8c8c9b89f95999194d69b9795">[email&#160;protected]</a>                                        
+                                 </div>
+                                 <div class="form__row account__edit-bottom">
+                                    <span class="account__bottom-caption form__row-caption account__light-caption">
+                                    *If you would like to change your account email or payment email, please contact <a href="./t_support.html">support</a>.
+                                    </span>
+                                    <button type="submit" class="button button_color_blue button_size_medium account__save-button">Save settings</button>                                        
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+         {% include 'partials/tutor_footer.html' %}
+      </div>
+      <div style="display: none;" id="socket-config" data-socket-url="wss://wss.studydaddy.com:8099" data-user-id="193865"></div>
+      <script data-cfasync="false" src="/static/js/email-decode.min.js">
+
+      </script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script type="text/javascript">
+         $('.js-edit-button').on('click', function () {
+             $('.js-main-account').toggle();
+             $('.js-edit-account').toggle();
+         });
+         
+         $('.js-choose-picture').on('click', function() {
+             $('.js-upload-picture').trigger('click');
+         });
+         
+         $('.js-upload-picture').on('change', function(e) {
+             var files = e.target.files;
+             var data = new FormData();
+             data.set('photo', files[0]);
+             
+             $.ajax({
+                 url: '',
+                 dataType: 'json',
+                 type: 'POST',
+                 cache: false,
+                 processData: false,
+                 contentType: false,
+                 data: data,
+                 success: function (result) {
+                     if (result.success) {
+                         $('.js-ava').attr('src', result.imgSrc);
+                     }
+                 }
+             });
+             return true;
+         });
+         
+         $('.js-a-docks').on('click', function() {
+             $('.js-input-docks').trigger('click');
+         });
+         
+         $('.js-input-docks').on('change', function(e) {
+             var files = e.target.files;
+             var fileString = '';
+             for (var i = 0; i < files.length; i++) {
+                 fileString = fileString + files[i].name + '<br>';
+             }
+             $('.js-docks-attached').html(fileString);
+             return true;
+         });
+         
+         
+         $('.js-a-passport').on('click', function() {
+             $('.js-input-passport').trigger('click');
+         });
+         
+         $('.js-input-passport').on('change', function(e) {
+             var files = e.target.files;
+             $('.js-passport-attached').html(files[0].name + '<br>');
+             return true;
+         });
+         
+         $('.js-file-remove').on('click', function () {
+             var fileId = $(this).data('file-id');
+             $.ajax({
+                 url: '',
+                 dataType: 'json',
+                 type: 'POST',
+                 cache: false,
+                 data: {id:fileId},
+                 success: function (result) {
+                     if (result.success) {
+                         $('.js-file-cont-' + fileId).remove();
+                     }
+                 }
+             });
+         });
+         
+         var allowSubmit = true;
+         $('.question-form__categories input').on('change', function() {
+             var checked = $('.question-form__categories input:checked').length;
+             if (checked > 6 || checked == 0) {
+                 $('.field-teacherprofileform-categoryids').addClass('modal-rate__error');
+                 var text = checked > 6 ? 'Maximum 6 areas of expertise allowed.' : 'Areas of expertise cannot be blank.';
+                 $('.field-teacherprofileform-categoryids .question-form__error-message').text(text);
+                 allowSubmit = false;
+             } else {
+                 $('.field-teacherprofileform-categoryids').removeClass('modal-rate__error');
+                 $('.field-teacherprofileform-categoryids .question-form__error-message').text('');
+                 allowSubmit = true;
+             }
+         });
+         
+         $('#teacher-profile-form').on('beforeSubmit', function () {
+             if (!allowSubmit) {
+                 $('button[type="submit"]', '#teacher-profile-form').prop('disabled', false);
+                 return false;
+             }
+         });
+         var domElementChanger = new GlobalElementChanger();
+         var socketConfig = $('#socket-config');
+         var chatSocket = new ChatSocket(
+             {
+                 webSocketUrl : socketConfig.data('socket-url'),
+                 userId : socketConfig.data('user-id'),
+                 domElementChanger : domElementChanger,
+                 userRequest : ['proposalMessage'],
+                 isCheckOnline : false
+             });
+      </script>
+      <script type="text/javascript">jQuery(document).ready(function () {
+         jQuery('#teacher-profile-form').yiiActiveForm([{"id":"teacherprofileform-photofile","name":"photoFile","container":".field-teacherprofileform-photofile","input":"#teacherprofileform-photofile","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.file(attribute, messages, {"message":"File upload failed.","skipOnEmpty":true,"mimeTypes":[],"wrongMimeType":"Only files with these MIME types are allowed: .","extensions":["jpg","png","jpeg","gif"],"wrongExtension":"Only files with these extensions are allowed: jpg, png, jpeg, gif.","maxSize":10485760,"tooBig":"The file \"{file}\" is too big. Its size cannot exceed 10 MiB.","maxFiles":1,"tooMany":"You can upload at most 1 file."});}},{"id":"teacherprofileform-about","name":"about","container":".field-teacherprofileform-about","input":"#teacherprofileform-about","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Field cannot be blank."});yii.validation.string(value, messages, {"message":"About you must be a string.","min":400,"tooShort":"Minimum 400 characters","skipOnEmpty":1});}},{"id":"teacherprofileform-categoryids","name":"categoryIds","container":".field-teacherprofileform-categoryids","input":"#teacherprofileform-categoryids","error":".question-form__error-message","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Areas of expertise cannot be blank."});}},{"id":"teacherprofileform-timezoneid","name":"timeZoneId","container":".field-teacherprofileform-timezoneid","input":"#teacherprofileform-timezoneid","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Default time zone cannot be blank."});}},{"id":"teacherprofileform-diplomafiles","name":"diplomaFiles[]","container":".field-teacherprofileform-diplomafiles","input":"#teacherprofileform-diplomafiles","error":".help-block2","validate":function (attribute, value, messages, deferred, $form) {yii.validation.file(attribute, messages, {"message":"File upload failed.","skipOnEmpty":true,"mimeTypes":[],"wrongMimeType":"Only files with these MIME types are allowed: .","extensions":["jpg","png","jpeg","gif","rar","zip","pdf"],"wrongExtension":"Only files with these extensions are allowed: jpg, png, jpeg, gif, rar, zip, pdf.","maxSize":15728640,"tooBig":"The file \"{file}\" is too big. Its size cannot exceed 15 MiB.","maxFiles":10,"tooMany":"You can upload at most 10 files."});}},{"id":"teacherprofileform-passportfile","name":"passportFile","container":".field-teacherprofileform-passportfile","input":"#teacherprofileform-passportfile","error":".help-block2","validate":function (attribute, value, messages, deferred, $form) {yii.validation.file(attribute, messages, {"message":"File upload failed.","skipOnEmpty":true,"mimeTypes":[],"wrongMimeType":"Only files with these MIME types are allowed: .","extensions":["jpg","png","jpeg","gif","rar","zip","pdf"],"wrongExtension":"Only files with these extensions are allowed: jpg, png, jpeg, gif, rar, zip, pdf.","maxSize":15728640,"tooBig":"The file \"{file}\" is too big. Its size cannot exceed 15 MiB.","maxFiles":1,"tooMany":"You can upload at most 1 file."});}}], {"errorCssClass":"modal-rate__error"});
+         });
+      </script>
+   </body>
+</html>

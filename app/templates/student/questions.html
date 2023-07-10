@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        header{
+            background: #fff !important;
+
+            margin-bottom:400px;
+        }
+       
+    </style>
+    <div class="container">
+        <header class="b">
+            <nav>
+                <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+                <div class="navigation-bar-wrapper">
+                    <input type="checkbox"  name="openandclose" id="openandclose">
+                    <div class="portfolio-logo logo">
+                        <a href="/">
+                            <h1>Freelance Bay</h1>
+                        </a>
+                    </div>
+                    <ul class="navigation-bar-links">
+                        <div class="second-nav">
+                            <div class="display-flex-normal column">
+                                <li><a href="/api/users/ask/question">Ask a question</a></li>
+                                <li><a href="/api/users/my/questions">My Question</a></li>
+                                <li><a href="/api/users/balance">Balance</a></li>
+                                <li><a href="/account/support">Support</a></li>
+                                <li><a href="{{ url_for('getProfile', username=student.username) }}" class="prr display-flex-normal ">Profile</a></li>
+                            </div>
+                        </div>
+                        <a href="/api/users/logout">Logout<i class='bx bx-log-out'></i></a>
+                    </ul>
+                    
+                    
+                        <label id="open" for="openandclose" class="p-l-10" >
+                            <div class="">
+                                <div class="menu"></div>
+                                <div class="menu mid"></div>
+                                <div class="menu"></div>
+                            </div>
+                        </label>
+
+                       
+                    
+                </div>
+            </nav>
+        </header>  
+    </div>
+    <div class="p-40 b-b"></div>
+
+    <div class="page-div w-p-100 m-a b-b">
+        <div class="m-a " >
+            <div class="display-flex-normal fwm">
+                <div class="col-2  prr dn">
+                    <div class=" prr side display-flex-normal column b-b b-r w-p-100">
+                        <a href="/api/users/ask/question" class=" prr display-flex-normal ">
+                            <i class='bx bx-plus-circle p-l-20'></i>
+                            <p class="p-l-20">Ask a Question</p>
+                        </a>
+                        <a href="/api/users/my/questions" class="activeSide prr display-flex-normal ">
+                            <i class='bx bxs-folder-open p-l-20'></i> 
+                            <p class="p-l-20">My Questions</p>
+                        </a>
+                        <a href="/api/users/balance" class=" prr display-flex-normal ">
+                            <i class='bx bx-money p-l-20'></i>
+                            <p class="p-l-20">Balance</p>
+                        </a>
+                        <a href="/account/support" class=" prr display-flex-normal ">
+                            <i class="fa p-l-20 fa-comments"></i> 
+                            <p class="p-l-20">
+                                Support
+                            </p>
+                        </a>
+                        <a href="{{ url_for('getProfile', username=student.username) }}" class="prr display-flex-normal " class=" prr display-flex-normal ">
+                            <i class='bx bx-cog p-l-20'></i> <p class="p-l-20">
+                                Profile
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="col-11 m-a">
+                        <div class="p-b-20 m-b-20">
+                            <div class="p-40-10">
+                                
+                                
+                                <div class="">
+                                    <div class="p-20-0">
+                                        <div class="">
+                                            <div class="btns" >
+                                                <div class=" display-flex-normal" style="border-bottom: 1px solid var(--background);justify-content: end;">
+                                                    <p id="all-btn" class="quiz-btn b-one cursor-pointer p-10 b-t-r-r-10 b-t-l-r-10 " onclick="tab1(event, 'all', 'quiz-btn', 'quizAccor','QuizLocal')">
+                                                        All (0)
+                                                    </p>
+                                                    <p id="new-btn" class="quiz-btn b-one cursor-pointer p-10 b-t-r-r-10 b-t-l-r-10 " onclick="tab1(event, 'new', 'quiz-btn', 'quizAccor','QuizLocal')">
+                                                        New (0)
+                                                    </p>
+                                                    <p id="progress-btn" class="quiz-btn b-one cursor-pointer p-10 b-t-r-r-10 b-t-l-r-10 " onclick="tab1(event, 'progress', 'quiz-btn', 'quizAccor','QuizLocal')">
+                                                        In progress (0)
+                                                    </p>
+                                                    <p id="finished-btn" class="quiz-btn b-one cursor-pointer p-10 b-t-r-r-10 b-t-l-r-10 " onclick="tab1(event, 'finished', 'quiz-btn', 'quizAccor','QuizLocal')">
+                                                        Finished (0)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class=" b-r-5">
+                                            <table class="b-one w-p-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="dn">ID</th>
+                                                        <th>Status</th>
+                                                        <th>Question Title</th>
+                                                        <th class="dn">Gategory Name</th>
+                                                        <th>Question Deadline</th>
+                                                        <th class="dn">Price</th>
+                                                        <th class="dn">Proposals Count</th>
+                                                        <th>Answers Count</th>
+                                                        <th class="dn">Tutor Name</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+    
+                                                    
+                                                    <div id="all" class="quizAccor">
+                                                        {% for task in tasks %}
+                                                            <tr>
+                                                                <td class="dn">{{ task.id }}</td>
+                                                                <td>{{ task.status }}</td>
+                                                                <td><a href="{{ url_for('studentCheckSingleQuestion', task_id=task.id) }}">{{ task.title }}</a></td></td>
+                                                                <td class="dn">{{ task.subject_id }}</td>
+                                                                <td>{{ task.timeline }}</td>
+                                                                <td class="dn">{{ task.amount }}</td>
+                                                                <td class="dn">{{ bids }}</td>
+                                                                <td>{{ answers }}</td>
+                                                                <td class="dn">{{ task.tutor_id }}</td>
+                                                            </tr>
+                                                        {% endfor %}
+        
+                                                    </div>
+
+                                                    <div id="new" class="quizAccor">
+                                                       
+                                                    </div>
+
+                                                    <div id="progress" class="quizAccor">
+                                                        
+        
+                                                    </div>
+
+                                                    <div id="finished" class="quizAccor" >
+                                                        
+                                                    </div>
+    
+                                                </tbody>
+                                            </table>
+    
+                                            <p class="text-center p-10-0 fade">No queries have been created yet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-2  dn">
+                    <div class="b-l b-b">
+                        <div class="prr">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="in">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 1</p>
+                                
+                                <label for="in" class="accordiontab cursor-pointer p-10-0 default-color">Ask a question</label>
+
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Type your question details, attach additional files, set up a deadline, and enter the amount you’re willing to pay for an answer.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc ">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step2">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 2</p>
+                                <label for="step2" class="accordiontab cursor-pointer p-10-0 default-color">Choose a tutor</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox" id="step3">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 3</p>
+                                <label for="step3" class="accordiontab cursor-pointer p-10-0 default-color">Reserve money</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc ">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step4">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 4</p>
+                                <label for="step4" class="accordiontab cursor-pointer p-10-0 default-color">Get your answer</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="prr ">
+                            <div class="accountacc">
+                                <div class="container-p">
+                                    <input type="checkbox"  id="step5">
+                                    <span class="checkmark-p"></span>
+                                </div>
+                            </div>
+                            <div class="p-t-20 p-l-30">
+                                <p>STEP 5</p>
+                                <label for="step5" class="accordiontab cursor-pointer p-10-0 default-color">Give feedback</label>
+                                <div class="accordion-panel p-r-20">
+                                  <p class="fade p-10-0">
+                                    Tutors will send their proposals. Choose the one that meets your requirements in terms of time and money.
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        {% include 'partials/footer.html' %} 
+    </div>
+
+
+
+    
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script>
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+        window.onscroll = ()=>{
+
+            
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+            {
+                $("header").addClass("headerBg")
+            }
+
+            else
+            {
+                $("header").removeClass("headerBg")
+
+            }
+          }
+          if(screen.width > 888)
+          {
+              $(".mobile").addClass("hide-m")
+          }
+          else
+          {
+              $(".mobile").removeClass("hide-m")
+
+          }
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 1000)
+    </script>
+</body>
+</html>

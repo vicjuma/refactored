@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        header{
+            background: #fff !important;
+
+            margin-bottom:400px;
+        }
+        
+    </style>
+    <div class="mo-signup"></div>    
+
+    <div class="container">
+        <header class="b">
+          <nav>
+            <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+            <div class="navigation-bar-wrapper">
+                <input type="checkbox"  name="openandclose" id="openandclose">
+                <div class="portfolio-logo logo">
+                    <a href="/">
+                        <h1>Freelance Bay</h1>
+                    </a>
+                </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                
+                <div class="mobile" style="display: flex;gap:10px;">
+                    <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                    <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                            <div class="menu"></div>
+                            <div class="menu mid"></div>
+                            <div class="menu"></div>
+                        </div>
+                    </label>
+
+                    <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+        </header>  
+    </div>
+    <div class="p-47"></div>
+
+    <div class="col-10 bs m-a">
+        <div class="p-t-20">
+            <div class="">
+                <div class="p-50-0">
+                    <div class="col-8 m-a">
+                        <div class="text-center">
+                            <h1>HOW IT WORKS?</h1>
+                            <p class="p-10-0">
+                                It's very easy to get any homework task done here at StudyDaddy! Our tutors can complete any type of assignment in 40 various subjects! Follow these simple steps to get your homework done.
+                            </p>
+                        </div>
+                        <div class="p-40-0">
+                            <div class="">
+                                <style>
+                                /* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: purple;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="/static/images/step1.gif" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="/static/images/step2.gif" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="/static/images/step3.gif" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/static/images/step4.gif" style="width:100%">
+  
+    <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/static/images/step5.gif" style="width:100%">
+  
+    <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/static/images/step6.gif" style="width:100%">
+  
+    <div class="text">Caption Three</div>
+  </div>
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+setInterval(()=>{
+    showSlides(slideIndex);
+}, 10000)
+</script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   
+
+    <div class="p-t-0">
+      {% include 'partials/footer.html' %} 
+  </div>
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script>
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+        window.onscroll = ()=>{
+
+            
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+            {
+                $("header").addClass("headerBg")
+            }
+
+            else
+            {
+                $("header").removeClass("headerBg")
+
+            }
+          }
+          
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 10)
+          
+    </script>
+</body>
+</html>

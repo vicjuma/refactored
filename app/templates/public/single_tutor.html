@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        header{
+            background: #fff !important;
+
+            margin-bottom:400px;
+        }
+        .pagination{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-start-end{
+           
+            border-radius:50% 50% 50% 0;
+        }
+
+        .pagination a{
+        color: rgb(0, 0, 0);
+
+
+        }
+        .pager,.page-start-end{
+            cursor: pointer;
+            margin: 0px 2px;
+            line-height: 24px;
+            width: 28px;
+
+            border: 1px solid rgb(109, 107, 107);
+
+        }
+
+        .pager
+        {
+            
+            border-radius:50%;
+        }
+        .current
+        {
+            background: var(--background);
+        }
+        .current 
+    {
+        color: white;
+
+    }
+        
+    </style>
+    <div class="mo-signup"></div>    
+
+    <div class="container">
+        <header class="b">
+            <nav>
+                <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+                <div class="navigation-bar-wrapper">
+                    <input type="checkbox"  name="openandclose" id="openandclose">
+                    <div class="portfolio-logo logo">
+                        <a href="/">
+                            <h1>Freelance Bay</h1>
+                        </a>
+                    </div>
+                    {% if user %}
+                    {% include 'partials/authenticated.html' %} 
+                 {% else %}
+                    {% include 'partials/anonymous.html' %} 
+                 {% endif %}
+                    
+                    
+                    <div class="mobile" style="display: flex;gap:10px;">
+                        <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                        <label id="open" for="openandclose" class="p-l-10" >
+                            <div class="">
+                                <div class="menu"></div>
+                                <div class="menu mid"></div>
+                                <div class="menu"></div>
+                            </div>
+                        </label>
+
+                        <div class="search-mobile b-r-10 ">
+                            <input class="p-l-10" type="text" placeholder="Search...">
+                            <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </nav>
+        </header>  
+    </div>
+    <div class="p-44"></div>
+
+    
+    <div id="page-div" class="bg-inner prr">
+        <div class="page-div  w-p-96 m-a ">
+            <div class="bs col-11 bgwhite m-a p-t-20">
+                <div class="display-flex-normal">
+                    <div class="col-9 b-r">
+                        <div class="p-20 ">
+                            
+                           
+                            <div class="list-tutor p-20-0">
+                              <div class="tutor-profile b-b  ">
+                                  <div class="m-20">
+                                    <div class="top_p p-0" >
+                                        <div class="">
+                                          <div class="display-flex-normal row fwm">
+                                            <div class=" m-r-5 ">
+                                                  <div class="card-image b-one">
+                                                    <img src="/static/c/images/profile2.jpg" class="card-img" alt="">
+                                                </div>                                               
+                                            </div>
+                                            <div class="w-p-100 p-10-20">
+                                              <div class="profile-top relative display-flex-normal space-between fw">
+                                                  <div class="">
+                                                    <div class="p-5-0">
+                                                      <a href="b-b w-p-100">
+                                                        <h3>BobAnalysisSchool</h3>
+                                                      </a>
+      
+                                                    </div>
+                                                    <div class="p-5-0">
+                                                      <p class="fade" >
+                                                        Member since: January, 2015
+                                                      </p>
+      
+                                                     
+      
+                                                    </div>
+                                                  </div>
+      
+                                                  <div class="relative" >
+                                                    <div class="display-flex-normal " style="float: right !important;">
+                                                      <p class="fade">Offline</p>
+                                                    </div>
+                                                  </div>
+                                              </div>
+      
+                                              <div class="">
+                                                  <div class="profile-bottom w-p-100">
+                                                      <div class="">
+                                                        <div class="display-flex-normal fwm">
+                                                          <strong class="f-s-12"> <span>Areas&nbsp;of&nbsp;expertise&nbsp;: </span> </strong>
+                                                          <div class="p-l-10 areas display-flex-normal">
+                                                            <li>Accounting</li>
+                                                            <li>Communications</li>
+                                                            <li>Computer Science</li>
+                                                            <li>Economics</li>
+                                                            <li>Programming</li>
+                                                            <li>Psychology</li>
+                  
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+      
+                                    
+                                    <div id="content" style="height: 200px ; overflow: hidden; transition: all 0.3s">
+                            
+                                      <div class="p-20-0">
+                                        <div class="question-body">
+                                          <h3>About me.</h3>
+                                        </div>
+          
+                                        <p class="fade">
+                                          I am a graduate in Bachelor of Economics. I have been an academic writer for three years now. During these years, I have been specializing in various fields: Accounting, Economics, and Programming. Besides my major fields, I can fully handle assignments in Psychology and Communication. I am familiar with all major formatting styles like APA, MLA, Chicago, Turabian, IEEE, and always provide plagiarism free paper.</p>
+                                          I am a graduate in Bachelor of Economics. I have been an academic writer for three years now. During these years, I have been specializing in various fields: Accounting, Economics, and Programming. Besides my major fields, I can fully handle assignments in Psychology and Communication. I am familiar with all major formatting styles like APA, MLA, Chicago, Turabian, IEEE, and always provide plagiarism free paper.</p>
+                                          I am a graduate in Bachelor of Economics. I have been an academic writer for three years now. During these years, I have been specializing in various fields: Accounting, Economics, and Programming. Besides my major fields, I can fully handle assignments in Psychology and Communication. I am familiar with all major formatting styles like APA, MLA, Chicago, Turabian, IEEE, and always provide plagiarism free paper.</p>
+                                          </div>
+                                   </div>
+                                   <button id="showMoreBtn" class="b-n p-t-10" style="display: none; background: none !important; color:purple;">Show More>></button>
+                                   <script>
+                                      const contentElement = document.getElementById("content");
+                                      const showMoreBtn = document.getElementById("showMoreBtn");
+                                      const maxHeight = 200; 
+                                      
+                                      if (contentElement.scrollHeight > maxHeight) {
+                                        showMoreBtn.style.display = "block";
+                                      }
+                                      showMoreBtn.addEventListener("click", function() {
+                                        if (contentElement.style.height === "auto") {
+                                          contentElement.style.height = maxHeight + "px";
+                                          showMoreBtn.textContent = "Show More >>";
+                                        } else {
+                                          contentElement.style.height = "auto";
+                                          showMoreBtn.textContent = "Hide <<";
+                                        }
+                                      });
+                                  </script>
+                                   
+                                  </div>
+                              </div>
+
+
+                      <div class="reviews">
+                        <div class="">
+                          <div class="p-30-0">
+                            <h4>Reviews about Tutor:</h4>
+                            <p class="p-10-0 fade">1 reviews</p>
+
+                            <div class="f-s-14">
+                              <div class="">
+                                <div class="">
+                                  <div class="tutor-profile b-b b-t ">
+                                    <div class="m-20">
+                                      <div class="top_p p-0" >
+                                          <div class="">
+                                            <div class="display-flex-normal row fwm" style="align-items: center;">
+                                              <div class=" m-r-5 m-a">
+                                                    <!-- <div class="w-100  l-h-100 bs b-t-r-r-20  b-t-l-r-20 b-b-r-r-20">
+        
+                                                      <img  class="" src="./images/119_119_2b995k5fkrwy9czn.jpg" alt="">
+                                                    </div> -->
+                                                    <div class="" >
+                                                      <img src="/static/c/images/profile2.jpg" class=" w-40 h-40" alt="" style="border-radius:15px 15px 15px 0 ; overflow:hidden;">
+                                                  </div>
+              
+                                                 
+                                              </div>
+                                              <div class="w-p-100 p-10-20">
+                                                <div class="profile-top relative display-flex-normal space-between fw">
+                                                    <div class="">
+                                                      <div class="p-5-0">
+                                                        <a href="">
+                                                          <h3> Student276866
+
+                                                            </h3>
+                                                        </a>
+        
+                                                      </div>
+                                                      <div class="p-5-0">
+                                                        
+                                                        <p class="fade p-5-0">
+                                                             “Always the best”
+                                                        </p>
+                                                        
+        
+                                                      </div>
+                                                    </div>
+        
+                                                    <div class="relative" >
+                                                      <div class="display-flex-normal " style="float: right !important;">
+                                                        <span class="p-r-10 float-right fade">Posted: 2023-06-26</span>
+                                                        <div class="stars "  style="color: #fc0;">
+                                                          <span class="fa fa-star checked"></span>
+                                                          <span class="fa fa-star checked"></span>
+                                                          <span class="fa fa-star checked"></span>
+                                                          <span class="fa fa-star"></span>
+                                                          <span class="fa fa-star"></span>
+                                                                                                          </div>
+                                                      </div>
+                                                     
+                                                    </div>
+                                                </div>
+        
+                                                
+                                                
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+        
+                                      
+                                   
+                                    </div>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                              
+
+                              
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="col-3 dn">
+                        
+                      <div class="p-10-25 b-l b-b">
+                          <div class="">
+                            <div class="">
+                              <div class="">
+                                <h4>Tutor Statistic:</h4>
+                                <div class="p-10-0 f-s-12">
+                                  <p class="p-3-0"><strong>22</strong> tutorials posted </p>
+                                  <p class="p-3-0"><strong>3460</strong> answers posted</p>
+                                  <p class="p-3-0"><strong>2021</strong> reviews</p>
+                                </div>
+                                <div class="p-10-0">
+                                  <li style="display: flex; gap:10px;">
+                                    <b>4.8</b>
+                                    <div class="rating tooltipstered" style="color: #fc0;">
+                                         <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i>                                        </div>
+                                </li>
+                                </div>
+                                <div class="">
+                                  <style>
+                                    .ul-reset{
+                                      display: flex;
+                                    }
+                                    .ul-reset .tooltipstered{
+                                      margin: 0 8px 0 0;
+                                      font-size: 22px;
+                                      width: 36px;
+                                      line-height: 36px;
+                                      color: #11c11e;
+                                  
+                                      display: inline-block;
+                                      vertical-align: middle;
+                                      background: #fff;
+                                      font-size: 16px;
+                                      color: #11c11e;
+                                      margin: 0 8px;
+                                      border-radius: 15px 15px 15px 0;
+                                      line-height: 30px;
+                                      -webkit-box-shadow: 0 4px 12px rgba(0,0,0,.1);
+                                      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+                                      width: 30px;
+                                      text-align: center;
+                                    }
+                                  </style>
+                                  <ul class="ul-reset">
+                                    <li class="tooltipstered" data-toggle="tooltip" data-placement="top">
+                                        <i class="fa fa-check"></i>
+                                    </li>
+                                    <li class="disabled tooltipstered" data-toggle="tooltip" data-placement="top">
+                                        <i class="fa fa-phone"></i>
+                                    </li>
+                                    <li class="tooltipstered" data-toggle="tooltip" data-placement="top">
+                                        <i class="fa fa-graduation-cap"></i>
+                                    </li>
+                                    <li class="tooltipstered" data-toggle="tooltip" data-placement="top">
+                                        @
+                                    </li>
+                                </ul>
+                                </div>
+                                <div class="ask-question-btn">
+                                  <div class="siteButton p-t-20">
+                                    <a href="/ask/a/question">
+                                      <button class="w-p-100 " style="padding: 12px !important; font-size:20px !important;">AsK question <span class="arrow-forward-normal"></span> </button>
+
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="p-20-0">
+                            <h3>FAQ</h3>
+                          </div>
+                            <li class="accordiontab cursor-pointer p-10-0 default-color">Who are Freelance Bay tutors?</li>
+                            <div class="accordion-panel">
+                              <p class="fade p-10-0">
+                                Our tutors are all professionals who have chosen to specialize in academic writing. To become a StudyDaddy tutor, applicants must pass our verification process and provide proof of their education and identity.
+                              </p>
+                            </div>
+    
+                            <li class="accordiontab cursor-pointer p-10-0 default-color">What does tutor rating mean?</li>
+                            <div class="accordion-panel">
+                              <p class="fade p-10-0">
+                                The rating of every writer is calculated automatically based on the votes of every customer who worked with this writer in the past and rated this writer's level of cooperation towards an order's completion.
+                              </p>
+                            </div>
+    
+                            <li class="accordiontab cursor-pointer p-10-0 default-color">How to get tutor help?</li>
+                            <div class="accordion-panel">
+                              <p class="fade p-10-0">
+                                Start from posting your order <a href="" class="link">here</a> and invite the tutor to complete your assignment.
+    
+                              </p>
+                            </div>
+    
+                            <li class="accordiontab cursor-pointer default-color">                              How much does it cost to ask a question?
+                            </li>
+                            <div class="accordion-panel">
+                              <p class="fade p-10-0">
+    It's entirely up to you! When asking a question simply type how much you are willing to pay.
+                              </p>
+                            </div>
+                           
+                      </div>
+
+                     
+    
+                  </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="p-20-0">
+            <div class="text-center">
+                <div class="">
+                  <style>
+                   
+                    .paging-div-dev
+                    {
+                        position: relative;
+                        border: 1px solid blue;
+                        width: 30px;
+                        line-height: 30px;
+                        overflow: hidden;
+                        height: 30px;
+                        cursor: pointer;
+                        border-radius: 50%;
+            
+                    }
+                    .paging-div
+                    {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .activepage
+                    {
+                        background: var(--background);
+                        color: white !important;
+
+            
+                    }
+                    .activepage ~ .link-div
+                    {
+                      color: #fff;
+                      font-weight: 600;
+                    }
+                    .link-div
+                    {
+                        position: absolute;
+                        width: 30px;
+                        top: 0;
+                        left: 0;
+                        text-decoration: none;
+                        text-align: center;
+                    }
+                    .pagination-div
+                    {
+                        display: flex;
+                        gap: 10px;
+                        justify-content: center;
+                    }
+                    .page-control{
+                      border-radius: 50% 50% 50% 0;
+                    }
+
+                    .mybutton
+                    {
+                      width: 30px;
+                      height: 30px;
+                    }
+                </style>
+                <div class="">
+                    <div class="">
+                        <div class="pagination-div">
+                          <div class="page-control paging-div-dev">
+                              <button class="mybutton bg-inherit b-n" id="back"><i class="fa fa-chevron-left"></i></button>
+                          </div>
+                            <div class="paging-div-dev">
+                                <div class="paging-div"></div>
+                                <a href="?page=1"class="link-div">1</a>
+                            </div>
+            
+                            <div class="paging-div-dev">
+                                <div class="paging-div"></div>
+                                <a href="?page=2"class="link-div">2</a>
+                            </div>
+            
+                            <div class="paging-div-dev">
+                                <div class="paging-div"></div>
+                                <a href="?page=3"class="link-div">3</a>
+                            </div>
+
+                            <div class="page-control paging-div-dev">
+                              <button class="mybutton bg-inherit b-n" id="forward"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+                </div>
+            </div>
+        </div>
+    
+        
+
+        <div class="bgback">
+            <div class="prr page-lower">
+                <div class="col-10 m-a display-flex-normal bg-manner" style="min-height: 50vh; background: url(./images/bg-body-1.png); align-items:center; justify-content: center;">
+                    <div class="">
+                        <div class="">
+                            <div class="col-11 m-a text-center">
+                                <div class="p-20-0">
+                                    <h1 class="">LEARN MORE EFFECTIVELY AND GET BETTER GRADES!</h1>
+                                </div>
+                                <div class="p-20">
+                                    <div class="button siteButton1">
+                                        <a href="/ask/a/question">
+                                            <button class="p-14-30">ASK A QUESTION</button>
+                                        </a>
+                                    </div>
+                                </div>
+    
+                                <div class="dn" style=" position: absolute; right:25%; bottom:0;;">
+                                    <img class="w-180" src="/static/images/girl-3.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    <div class="">
+        {% include 'partials/footer.html' %} 
+    </div>
+
+    <style>
+        #page-div{
+            background:#e8e0e031;
+
+        }
+        .bgback{
+
+            background: url(./images/bg-homework-v-2.png);
+        }
+        .bg-manner{
+
+            background: url(./images/bg-inner.png);
+            background-size: cover;
+        }
+        .page-lower{
+
+            background: url(./images/bg-inner.png);
+        }
+    </style>
+
+
+    
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+    <script>
+      var back = document.querySelector("#back");
+      const url = window.location.href
+
+      back.addEventListener("click", ()=>{
+
+          const parsedUrl = new URL(url)
+          const searchParams = parsedUrl.searchParams 
+          const currentPage = searchParams.get("page")
+          if(isNaN(currentPage) ||currentPage === null)
+          {
+            alert(0)
+          }
+          else
+          {
+            if(currentPage>1)
+            {
+                var newPage = currentPage -1 
+                searchParams.set("page", newPage)
+                parsedUrl.search = searchParams.toString()
+                const newUrl = parsedUrl.toString()
+                
+                window.location.assign(newUrl)
+            }
+          }
+      })
+
+
+
+      $(document).ready(()=>{
+        var pager= window.location.search.indexOf("page=");
+        console.log(pager)
+        var all = document.querySelectorAll(".pagination-div a")
+        
+
+        if(pager == -1)
+        {
+
+            console.log(pager)
+        }
+        else
+        {
+            for(var i=0; i<all.length; i++)
+            {
+                //console.log(window.location.search)
+
+                if(all[i].getAttribute("href") == window.location.search)
+                {
+                    console.log(all[i].parentElement.children[0].classList.add("activepage"))
+                    
+                }
+                else
+                {
+                console.log(1)
+
+                }
+
+
+            }
+
+        }
+
+        
+    });
+
+    </script>
+    <script>
+        
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+
+
+          
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 10)
+          
+    </script>
+
+</body>
+</html>

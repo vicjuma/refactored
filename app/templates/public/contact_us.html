@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        header{
+
+            margin-bottom:400px;
+        }
+        .login-form
+        {
+            height: 90vh;
+            background: url(./images/bg-form.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bx {
+            box-sizing: border-box;
+            width: 100%;
+
+        }
+        .of{
+            outline: none;
+            
+        }
+        .login-form form .bx .b-one
+        {
+            background: #fff;
+        }
+    </style>
+    <div class="container">
+        <header class="b">
+            <nav>
+                <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+                <div class="navigation-bar-wrapper">
+                    <input type="checkbox"  name="openandclose" id="openandclose">
+                    <div class="portfolio-logo logo">
+                        <a href="/">
+                            <h1>Freelance Bay</h1>
+                        </a>
+                    </div>
+                    {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                    {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                    {% endif %}
+                    
+                    
+                    <div class="mobile" style="display: flex;gap:10px;">
+                        <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                        <label id="open" for="openandclose" class="p-l-10" >
+                            <div class="">
+                                <div class="menu"></div>
+                                <div class="menu mid"></div>
+                                <div class="menu"></div>
+                            </div>
+                        </label>
+
+                        <div class="search-mobile b-r-10 ">
+                            <input class="p-l-10" type="text" placeholder="Search...">
+                            <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </nav>
+        </header>  
+    </div>
+    <div class="p-47"></div>
+
+    <div class="col-10 bs m-a login-form">
+        <div class="display-flex ">
+            <div class="col-6">
+                <div class="p-40-26">
+                    <form action="">
+                        <div class="bx">
+                            <div class="text-center">
+                                <p class="f-s-25">Contact us</p>
+                               <p class="p-10-0 f-s-12"> You can write us using our contact form below or email us at  </p>
+                               <a href="mailto:support@studydaddy.com">support@studydaddy.com</a>
+                            </div>
+    
+                            <div class="p-t-30">
+                                <div class="display-flex-normal column bx">
+                                    <p class="p-0-10 w-p-96">Email</p>
+                                    <div class="b-one w-p-96 of m-t-10 p-0-6 m-a">
+                                        <input id="email" type="email" class="p-15-0  b-n" >
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                textarea{
+                                    resize: none;
+                                    
+                                }
+                            </style>
+    
+                            <div class="p-t-10">
+                                <div class="display-flex-normal column bx">
+                                    <p class="p-0-10">Message</p>
+                                    <div class="b-ne w-p-96 of m-t-10 p-0-0 m-a">
+                                       <textarea class="w-p-100 p-10" name="" id="message" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="contact-form__row ">
+                            <div class="contact-captcha">
+                                <div class="form-group field-contactform-recaptcha display-flex p-t-20">
+                                    <input type="hidden" id="w0-input" name="ContactForm[recaptcha]">
+                                    <div id="w0-container ">
+                                        <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfS4ZcUAAAAAPiqrLB3p3FbVvbGu5O82mhqGjmU&amp;co=aHR0cHM6Ly9zdHVkeWRhZGR5LmNvbTo0NDM.&amp;hl=en&amp;v=khH7Ei3klcvfRI74FvDcfuOo&amp;size=normal&amp;cb=ih6kbqougq16" role="presentation" name="a-ux2j245h2z9b" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="304" height="78" frameborder="0"></iframe></div>
+                                        <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                        </div>
+                                        <iframe style="display: none;"></iframe>
+                                    </div>
+                                    <p class="help-block2 help-block-error"></p>
+                                </div>
+                            </div>
+                               
+                            <div class="p-t-20">
+                                <div class="display-flex-normal column w-p-100">
+                                    
+                                    <div class=" of m-t-10 m-a siteButton" style="min-width: 100px;">
+                                        <button style="padding: 10px 0;" class="text-center w-p-100  f-s-24 b-n b-one">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                           
+    
+    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mo-signup"></div>
+    {% include 'partials/footer.html' %}   
+
+
+  
+
+
+    
+
+    <script src="/static/js/jQuery.js"></script>
+    <script src="/static/js/freelance.js"></script>
+
+    <script>
+        function toogleSearch()
+        {
+            $( ".search" ).toggleClass( "searchtransition" )
+            $( ".search-mobile" ).toggleClass( "searchtransition" )
+
+            
+        }
+
+        window.onscroll = ()=>{
+
+            
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+            {
+                $("header").addClass("headerBg")
+            }
+
+            else
+            {
+                $("header").removeClass("headerBg")
+
+            }
+          }
+          if(screen.width > 888)
+          {
+              $(".mobile").addClass("hide-m")
+          }
+          else
+          {
+              $(".mobile").removeClass("hide-m")
+
+          }
+
+          setInterval(()=>{
+            if(screen.width > 888)
+            {
+                $(".mobile").addClass("hide-m")
+            }
+            else
+            {
+                $(".mobile").removeClass("hide-m")
+
+            }
+          }, 1000);
+    </script>
+</body>
+</html>

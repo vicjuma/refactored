@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/nav.css">
+      <link rel="stylesheet" href="/static/css/tutor.css">
+      <link rel="stylesheet" href="/static/css.css">
+   </head>
+   <body>
+      <div class="mo-signup"></div>
+      <style>
+         header{
+         background: #fff !important;
+         margin-bottom:400px;
+         }
+      </style>
+      <div class="container">
+         <header class="b">
+            <nav>
+               <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+               <div class="navigation-bar-wrapper">
+                  <input type="checkbox"  name="openandclose" id="openandclose">
+                  <div class="portfolio-logo logo">
+                     <a href="/">
+                        <h1>Freelance Bay</h1>
+                     </a>
+                  </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                  <div class="mobile" style="display: flex;gap:10px;">
+                     <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                     <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                           <div class="menu"></div>
+                           <div class="menu mid"></div>
+                           <div class="menu"></div>
+                        </div>
+                     </label>
+                     <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </header>
+      </div>
+      <div class="p-44"></div>
+      <div class="page-div w-p-96 m-a">
+         <div class="bs col-11 m-a p-t-20">
+            <div class="display-flex-normal">
+               <div class="col-9 b-r">
+                  <div class="p-20 ">
+                     <div class=" p-b-15">
+                        <h2>HOW TO GET THE ANSWER</h2>
+                     </div>
+                     <p class="fade f-s-12">
+                        4 easy steps to get the answer
+                     </p>
+                     <div class="steps p-10-0">
+                        <div class="display-flex-normal dn">
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr p-l-10" style="border-left: 5px solid purple;">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">1</span>
+                                    <p class="p-5-0">Submit your instructions
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr p-l-4" style="border-left: 5px solid purple;">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">2</span>
+                                    <p class="p-5-0">Review the tutors' proposals
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr ">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">3</span>
+                                    <p class="p-5-0">Assign the most suitable tutor
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-3">
+                              <div class="stepList p-20-0">
+                                 <div class="prr ">
+                                    <h1>Step</h1>
+                                    <span class="b-t-r-r-30  b-t-l-r-30 b-b-r-r-30 f-w-600 f-s-18">4</span>
+                                    <p class="p-5-0">Get your answer
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-20-0">
+                        <form id="ask-question-form" class="question-form" action="" method="post">
+                           <div class="row " style="display: flex; gap:10px;">
+                              <style>
+                                 input{
+                                 width: 100%;
+                                 }
+                              </style>
+                              <div class="item col-6">
+                                 <div class="question-form__row field-askquestionform-due required">
+                                    <span class="p-10-0">Deadline:</span> <span class="question-form__error-messaged"></span>
+                                    <br>
+                                    <br>
+                                    <input type="datetime-local" name="deadlinedate" id="deadlinedate">
+                                    <div class="days-left">
+                                       <br>
+                                       <p class="fade">7day 5hr 20min 33secs left</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="item col-6">
+                                 <div class="question-form__row field-askquestionform-email required">
+                                    <span class="p-10-0">Email:</span>
+                                    <br>
+                                    <br>
+                                    <input type="email" id="askquestionform-email" class="form-control" name="AskQuestionForm[email]">
+                                    <div class="question-form__error-message question-form__error-messagee help-block2" style="position:absolute"></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="question-form__row_type_coupon data-hj-whitelist field-askquestionform-coupon_code" data-hj-whitelist>
+                              <div class="row normal" style="display:flex;gap: 20px;">
+                                 <div class="item item-md-4">
+                                    <div>
+                                       <div class="HaveAPromoCode">
+                                          <span class="promo-label js-show-promocode-block cursor-pointer">Have a promo code?</span>
+                                          <span class='rating whiteHint'>
+                                          <span class="tooltiptext f-s-10">You can get a discount if you have a promo code.</span>
+                                          <span class="info-icon"></span>
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="item item-md-4">
+                                    <div class="js-coupon-block" style='display:none;'>
+                                       <div class='coupon-input-block' style="display:flex;gap: 5px; align-items:center;" >
+                                          <input type="text" id="askquestionform-coupon_code" class="" name="AskQuestionForm[coupon_code]" placeholder="Enter here">
+                                          <div class='js-check-coupon coupon-check-button cursor-pointer'>CHECK</div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="item item-md-4 coupon_message_block">
+                                    <div class='js-coupon_message_success coupon_message_success'></div>
+                                    <div class="help-block"></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="btns">
+                              <button type="submit" class="btn btn-blue question-form__button float-right" name="step2">Post a question</button>                        
+                           </div>
+                        </form>
+                     </div>
+                     <!-- </form> -->
+                     <!-- AskQuestion form end -->
+                  </div>
+               </div>
+               <div class="col-3 dn">
+                  <div class="p-0-25 ">
+                     <div class="pr">
+                        <div class=" p-l-22 m-l-10 ">
+                           <div class="p-10-0">
+                              <p class="f-w-600">
+                                 FAST AND CONVENIENT
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon1.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 Simply post your question and get it answered by professional tutor within 30 minutes. It's as simple as that!
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pr">
+                        <div class=" p-l-20 m-l-10">
+                           <div class="p-10-0">
+                              <p class="f-w-600 f-s-15">
+                                 ANY TOPIC, ANY DIFFICULTY
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon2.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 We've got thousands of tutors in different areas of study who are willing to help you with any kind of academic assignment, be it a math homework or an article.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pr">
+                        <div class=" p-l-22 m-l-10">
+                           <div class="p-10-0">
+                              <p class="f-w-600 f-s-15">
+                                 100% SATISFIED STUDENTS
+                              </p>
+                           </div>
+                           <div class="image-banner">
+                              <img src="/static/images/sb_icon3.svg" alt="">
+                           </div>
+                           <div class="myb">
+                              <p class="fade">
+                                 Join 3,4 million+ members who are already getting homework help from StudyDaddy!
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-outer js-already-modal">
+         <div class="modal-fade js-already-modal-close"></div>
+         <div class="modal-inner">
+            <span class="modal-close js-already-modal-close">&times;</span>
+            <div class="modal-title">Log In</div>
+            <div class="modal__text">
+               <div>The email address you have entered is already registered. Please, log in to your account to post a question.</div>
+            </div>
+            <!-- modal form -->
+            <form id="login-form-local" class="modal__form" action="" method="post">
+               <input type="hidden" id="userIdent" class="form-control" name="LoginForm[userIdentifier]">
+               <!-- row -->
+               <div class="modal__exist-user">
+                  <!-- avatar -->
+                  <figure class="modal__user-avatar">
+                     <img src="/static/images/no-avatar.png" width="20" height="20" alt="">
+                  </figure>
+                  <strong class="modal__text-email">user@gmail.com</strong>
+               </div>
+               <br>
+               <div class="modal__form-row field-loginform-password required">
+                  <a class="pull-right" href="./forgetpassword.html">Forgot password?</a>
+                  <p class="modal__form-label">Password</p>
+                  <input type="password" id="loginform-password" class="form-control" name="LoginForm[password]">
+                  <span class="modal__error-message"></span>
+               </div>
+               <button type="submit" class="btn btn-blue">Log In</button>
+            </form>
+         </div>
+      </div>
+      <!-- modal -->
+      <div class="modal-outer js-no-email-modal js-modal-blurred">
+         <div class="modal-fade js-no-email-close"></div>
+         <div class="modal-inner">
+            <span class="modal-close js-no-email-close">&times;</span>
+            <div class="modal-title">Thanks for Asking Your Question!</div>
+            <div class="modal__text">
+               <div>It will be posted once you verify your email: <strong class="modal__text-email"></strong>.</div>
+               <div class="resend-cont-info"><strong>Still have no email?</strong> Check your spam folder or <a class="resend-email-link" href="javascript:;">resend email</a>.
+                  <span class="modal__progress">
+                  <span class="modal__progress-background under-loader" style="width: 0;"></span>
+                  <span class="modal__progress-text sent-success-txt">0%</span>
+                  </span>
+               </div>
+               <div><strong>Mistyped your email?</strong> Add new email address:</div>
+            </div>
+            <!-- modal form -->
+            <form id="new-email-form" class="modal__form" action="" method="post">
+               <div class="modal__form-row field-newemailform-email required">
+                  <input type="text" id="newemailform-email" class="form-control" name="NewEmailForm[email]">
+                  <div class="modal__error-message"></div>
+               </div>
+               <button type="submit" class="button button_color_blue">Submit</button>            
+            </form>
+         </div>
+      </div>
+      <!-- modal -->
+      <div class="modal-outer js-error-modal">
+         <div class="modal-fade js-error-modal-close"></div>
+         <div class="modal-inner">
+            <span class="modal-close js-error-modal-close">&times;</span>
+            <div class="modal-title">Error occurred!</div>
+            <div class="modal__text">
+               <div>Undefined error with server side occurred</div>
+            </div>
+         </div>
+      </div>
+      {% include 'partials/footer.html' %} 
+      <script src="/static/js/jQuery.js"></script>
+      <script src="/static/js/freelance.js"></script>
+      <style>
+         .empty-field {
+         border-color: red;
+         }
+      </style>
+      <div class="mo-signup"></div>
+      <script>
+         function toogleSearch()
+         {
+             $( ".search" ).toggleClass( "searchtransition" )
+             $( ".search-mobile" ).toggleClass( "searchtransition" )
+         
+             
+         }
+         
+         
+         
+           
+         
+           setInterval(()=>{
+             if(screen.width > 888)
+             {
+                 $(".mobile").addClass("hide-m")
+             }
+             else
+             {
+                 $(".mobile").removeClass("hide-m")
+         
+             }
+           }, 10)
+           
+      </script>
+      <script>
+         $(document).ready(()=>{
+
+            $(".modal_close").html("")
+
+            var mosignup =$(".mo-signup");
+            mosignup.html($(".modal-outer"));
+
+
+            $(".modal-close").on("click", ()=>{
+                closeModal($('.js-already-modal'), 400);
+
+            })
+            $('.js-show-promocode-block').on('click',function() {
+                ($(window).width()<768) ? $('.js-coupon-block:hidden').fadeIn(200) : $('.js-coupon-block:hidden').slideDown(400);
+            });
+            
+             $("#ask-question-form").on("submit", (e)=>{
+                var isValid = true
+
+                if($("#deadlinedate").val().trim() === '')
+                {
+                    isValid = false
+                    $(".question-form__error-messaged").html('<p style="color:red;">Field required</span>')
+
+                }
+                else
+                {
+                    $(".question-form__error-messaged").html('')
+
+                }
+                
+
+                if($("#askquestionform-email").val().trim() === '')
+                {
+                    isValid = false
+                    $(".question-form__error-messagee").html('<p style="color:red;">Field required</span>')
+
+                }
+                else
+                {
+                    $(".question-form__error-messagee").html('')
+
+
+                }
+
+                $(".modal__text-email").html($("#askquestionform-email").val())
+                
+                 if(!isValid)
+                 {
+                     e.preventDefault()
+                 }
+                 else
+                 {
+                    e.preventDefault()
+                    showModal($('.js-already-modal'), 400);
+
+                 }
+             })
+         })
+      </script>
+  
+   </body>
+</html>

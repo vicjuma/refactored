@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/nav.css">
+      <link rel="stylesheet" href="/static/css.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <style>
+         header{
+         background: #fff !important;
+         margin-bottom:400px;
+         }
+      </style>
+      <div class="mo-signup"></div>
+      <div class="container">
+         <header class="b">
+            <nav>
+               <input type="checkbox" onclick="setTheme()" name="theme" id="theme">
+               <div class="navigation-bar-wrapper">
+                  <input type="checkbox"  name="openandclose" id="openandclose">
+                  <div class="portfolio-logo logo">
+                     <a href="/">
+                        <h1>Freelance Bay</h1>
+                     </a>
+                  </div>
+                  {% if user %}
+                     {% include 'partials/authenticated.html' %} 
+                  {% else %}
+                     {% include 'partials/anonymous.html' %} 
+                  {% endif %}
+                  <div class="mobile" style="display: flex;gap:10px;">
+                     <li class="s-icon"><i onclick="toogleSearch()" class="bx bx-search"></i></li>
+                     <label id="open" for="openandclose" class="p-l-10" >
+                        <div class="">
+                           <div class="menu"></div>
+                           <div class="menu mid"></div>
+                           <div class="menu"></div>
+                        </div>
+                     </label>
+                     <div class="search-mobile b-r-10 ">
+                        <input class="p-l-10" type="text" placeholder="Search...">
+                        <i onclick="toogleSearch()" class='bx bx-search p-r-10'></i>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </header>
+      </div>
+      <div class="p-40"></div>
+      <div class="mo-signup"></div>
+      <div class="page-div w-p-96 m-a">
+         <div class="bs col-11 m-a p-t-20">
+            <div class="display-flex-normal fwm">
+               <div class="col-11">
+                  <div class="">
+                     <div class="">
+                        <div id="how-does-it-work" class="p-20 f-s-13 fade ">
+                           <div class="p-15-0">
+                              <p class="f-s-26">Privacy policy</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p class="fade f-s-12">
+                                 StudyDaddy.com, founded and operated by StudyDaddy, has developed the following Privacy Policy with a view to helping users and visitors understand our ways of data collection and storage. Our Privacy Policy is designed to encourage you to make informed decisions when it comes to using our service located at StudyDaddy.com (hereinafter referred as “the Website”). When visiting or using the Website, you agree to follow all the rules listed in this Privacy Policy.                               </p>
+                           </div>
+                           <div class="p-10-0 ">
+                              <p>In case of an unresolved issue regarding privacy or personal information usage that was not addressed successfully,<a href="/contact/us"> contact us.</a></p>
+                           </div>
+                       
+                           
+                           <div class="p-15-0">
+                              <p class="f-s-26">Personally Identifiable Information</p>
+                           </div>
+
+                           <div class="p-5-0">
+                              <p>You can generally visit our Website without having to submit any personally identifiable information about yourself to us. </p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>If you set up an account with us on the Website, we will collect personally identifiable information that you include in the registration or submission form, such as your email address, profile photo and username. If you set up an account with us on the Website, post a question or answer or other information in our Website, we will collect any personally identifiable information that you include in your submission or posting.  </p>
+                           </div>
+
+                           <div class="p-5-0">
+                              <p>If you contact us with questions or request information we will collect your email address and any other personally identifiable information that you voluntarily transmit with your communications to us. </p>
+                           </div>
+
+                           <div class="p-15-0">
+                              <p class="f-s-26">Information we collect as you browse our website</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p> The statistical data our webserver collects as you browse the website includes information about your IP address, the type of browser you are using, your operating system, and access times. Sometimes, cookies can be used to customize the content of our webpages, based on your browser type, IP address, or other anonymous information.
+
+                            </p>
+                           </div>
+                           
+
+                           <div class="p-15-0">
+                              <p class="f-s-26">ABOUR COOKIES</p>
+                           </div>
+                           <div class="p-5-0">
+                            <p>Cookies are text files used to identify a computer to a server. Cookies identify which computer is being used, not a specific individual user. This tool is used by many different websites to monitor visitor traffic. Cookies gather information about areas of a website that users visit, and the time spent on a particular page. On our Website, cookies are used to serve the following functions: 
+                              
+                            </p>
+                            <div class="listing">
+                              <div>
+                                <p class="faqIco fade">To remember that a user is in the process of making an order..</p>
+                             </div>
+                             <div>
+                                <p class="faqIco fade">To remember that a user is signed in.
+                              </p>
+                             </div>
+                             <div>
+                                <p class="faqIco fade">To display the date and time in accordance with the user's timezone.</p>
+                             </div>
+                             <div>
+                                <p class="faqIco fade">To improve user experience and make website navigation more convenient.</p>
+                             </div>
+                           
+                             
+                            
+                            </div>
+
+                            <div class="p-5-0">
+                              <p>Users can modify browser settings to accept all cookies to receive a notification every time a cookie is used, or not to receive cookies at all. In case of the last option, the user might not be able to use some personalized services. </p>
+                            </div>
+                           </div>
+                           <div class="p-5-0">
+                          
+                           <div class="p-15-0">
+                              <p class="f-s-26">Usage of the Collected Data</p>
+                           </div>
+
+                           <div class="p-10-0">
+                            <p>On some webpages, you may be asked to provide some personal information, including your e-mail address. Please note that such information is never sold, rented or shared with any third party. We employ your information in these ways: </p>
+                           </div>
+                          <div class="p-5-0">
+                            <p>In terms of site usage, you must:</p>
+                          </div>
+                           <style>
+                            ol li{
+                              list-style-type: decimal !important;
+                              padding: 5px 0;
+                              margin-left: 20px;
+                            }
+                           </style>
+                           <ol>
+                            <li>Be of legal age in order to accept the Terms and abide by them.</li>
+                            <li>Provide actual, complete, and correct information when registering at the website (referred to as 'registration data').</li>
+                            <li>Not disclose your login information to anyone in order to maintain the security of your personal information.</li>
+                            <li>Keep all the contact and personal information provided to StudyDaddy.com up to date.</li>
+                            <li>Take responsibility for any risks regarding unauthorized access to your registration data and personal details.</li>
+                          </ol>
+                          
+
+                           <div class="p-5-0">
+                            <p>Every user must agree to utilize the website and its services in a lawful, ethical and proper manner. Any offensive, illegal, inappropriate or otherwise improper usage of StudyDaddy.com will lead to termination of the contract between the company and the user. StudyDaddy.com has a right not to send out any notifications regarding suspension.</p>
+                           </div>
+                           <div class="p-5-0">
+                            <p>Users should carefully read and remember the following points that may lead to the termination of cooperation between them and the company.
+
+                            </p>
+                           </div>
+
+                          <div class="listing">
+                            <div>
+                              <p class="faqIco fade">You will receive proposals from tutors to complete your assignment. Chat with the tutors who applied for your order, discuss their educational background, professional experience, and writing style.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You have the required qualifications, credentials and expertise to offer answers, instruction and materials, and that any credentials you post are accurate, truthful, complete, and not misleading;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will not use the StudyDaddy for any business other than for providing tutoring, teaching and instructional services to registered Users;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will respond to Users seeking your services in a timely fashion, so as to ensure quality of service to Users;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will not submit any false or misleading answers or information, or submit any proposal with a price that you do not intend to honor;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You can only create one account with us and may not transfer or sell your account to anyone else. Creating multiple accounts is forbidden. Duplicate accounts will be permanently banned.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not and you agree that you will not share personal contacts. This includes your first and last name, email address, Skype ID, phone number, social network usernames, etc. You may not ask the student for login details to university websites. In case of any violation of these Terms, the tutor account would be immediately terminated without any compensation or refunds.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">By applying and participating in the paper writing services provided through this Website, you are representing to us that you are a qualified writer in good standing. Providing false or incomplete information will result in being barred from the system and/or withholding of all payments due to the writer, under these Terms.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not and you agree that you will not advertise any external homework assistance services via StudyDaddy platform.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not boost your profile with fake reviews.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Do not apply to the question if you are unable to provide the quality answer in time. Your StudyDaddy account can be blocked due to a large amount of refunds.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Any violation of legal rights, including intellectual property rights and rights to personal security. This also includes verbal abuse, cyber bullying, stalking, threatening and defaming of others.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Uploading, distributing, publishing any illegal, hateful, inappropriate or disrespectful materials, topics, names and other data.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Using the website and its services for purposes that violate local, national and international regulations, including work and hourly wage related laws.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Sharing and uploading files containing any materials violating copyrights and other decrees and regulations.</p>
+                           </div>
+                          </div>
+                         <div>
+                            <p class="faqIco fade">Purposely uploading files
+                         
+
+                           <div class="p-5-0">
+                            <p>StudyDaddy.com doesn’t claim any copyright in regards to the content you upload to the website and has no obligation to follow respect this content. As long as it is not stated otherwise, all the content coming from our customers is deemed to be created on a non-confidential basis. Therefore, the company has a legal right to remove such content without sending a notification to the person who posted it. In addition, by posting any piece of information at StudyDaddy.com, you give us a right to change, distribute, publish, share, adapt and resell it with a view to assisting you.</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>Users who violated StudyDaddy’s Terms or are involved in fraudulent financial activity can be blocked.</p>
+                           </div>
+                           <div class="p-15-0">
+                              <p class="f-s-26">Payment</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p> You understand and agree to abide by StudyDaddy’s tutor and student payment policies. You agree that you are willing to pay all costs through StudyDaddy. These costs include but are not limited to price as listed.
+                            </p>
+                           </div>
+                           <div class="p-5-0">
+                            <p>
+                              It is your responsibility to get yourself acquainted with the payment-related nuances and try to avoid those.</p>
+                           </div>
+                           <div>
+                            <ul class="p-0-20">
+                              <li style="list-style-type: decimal !important;" class="-p-5-0">
+                                The customer should not chargeback any expenses paid when purchasing a product from StudyDaddy.com. If you do a chargeback, Site has a right to immediately suspend your account.</li>
+
+                                <div class="p-5-0">
+                                  <li style="list-style-type: decimal !important;">
+    Tutors/Experts receive payment from Students via the Site only. StudyDaddy does not condone or in any way participate or become a party to any off-site transactions between users of the Site. Site reserves the right to suspend Relevant Users accounts involving off-Site transaction.
+
+                                  </li>
+                                </div>
+                            </ul>
+                           </div>
+
+
+                           <div class="p-15-0">
+                              <p class="f-s-26">Revision and Refund Policy</p>
+                           </div>
+                           <div class="p-5-0">
+                            <p>We assess refund requests on a case-by-case basis as there are usually unique reasons why a refund request is made. Unsatisfactory answers are answers that are either overdue, or fail to follow the instructions outlined in the question's description. If you receive an unsatisfactory answer, the first thing you should do is ask the tutor to revise the answer. If this does not resolve your dispute and you feel it necessary to make a refund request, contact support team with the reason for your refund request and explain why the answer is unsatisfactory. Please note, we may require documented proof that the quality of your order is low. The support agent will go over the answer to see if it meets the requirements and our internal guidelines for quality. If the answer do not meet the requirements, the student's money are refunded. We offer 10 days to request a refund in case you were dissatisfied with the answer. Once the Refund Period elapses, we will not refund any amounts paid.</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>Customer can seek revision of the product if it does not meet the specifications provided by the Customer. Once the customer completes the order and rates tutor is deemed as completion of the job to the satisfaction of the Customer, and no money will be refunded.</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>After the answer was posted we offer 10 days to send us any complaints or revision requests. After 10 days money will be sent to the Tutor automatically. Please, review your order carefully. Once the amount is received by the Tutor, it is deemed that the work is complete and is to your satisfaction and no refund will be made.
+
+                            </p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>If your order is late because you did not provide required information or materials on time, then you cannot claim a refund based on lateness. Please, be advised that it is very important to provide requirements as the time you place your order.</p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>If a revision request violates the original instructions, StudyDaddy has the right to decline it.
+
+                            </p>
+                           </div>
+
+                           <div class="p-5-0">
+                            <p>Revision Policy is not applied to the purchased Tutorials. All tutorials are non-refundable and come with no warranties, expressed or implied. Once an order has been completed, the company does not grant refunds under any circumstances, unless specifically stated herein. Products are for research, reference, informational and entertainment purposes only. It is the customers responsibility to read and understand this policy prior to purchase.</p>
+                           </div>
+
+                           <div class="p-15-0">
+                              <p class="f-s-26"> Additional Tutor Terms</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>You acknowledge and agree that you are solely responsible for all answers and tutorials that you make available through the StudyDaddy. Accordingly, you represent and warrant that: (i) you are the original creator and writer of all Answers and Tutorials that you make available through the StudyDaddy or you have all rights, licenses, consents and releases that are necessary to grant to StudyDaddy the ownership in such Answers and Tutorials, as contemplated under these Terms; (ii) neither the Answers and Tutorials nor your posting, uploading, publication, submission or transmittal of the Answers and Tutorials or StudyDaddy’s use of the Answers and Tutorials (or any portion thereof) on, through or by means of the StudyDaddy will infringe, misappropriate or violate a third party’s patent, copyright, trademark, trade secret, moral rights or other proprietary or intellectual property rights, or rights of publicity or privacy, or result in the violation of any applicable law or regulation; and (iii) your Answers and Tutorials and your postings will not defame any person, business, location or property.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>Answers and Tutorials are not private or confidential and may be read, collected, and used by others. To better protect your privacy, do not include information regarding your identity or contact information in Answers and Tutorials that you post or upload to the StudyDaddy. You are fully responsible for all Answers and Tutorials you contribute, in any manner, to the StudyDaddy, and for the accuracy of the same, and you represent and warrant you have all rights necessary to do so, in the manner in which you contribute it, and that StudyDaddy shall not need to obtain any licenses, rights, consents, or permissions from, or make any payments to, any third party for any use or exploitation of your Answers and Tutorials in any and all media, whether now known or hereafter created, or have any liability to you or any third party as a result of any use of your Answers and Tutorials as authorized in these Terms.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>After submitting your Answers and Tutorials to the StudyDaddy, StudyDaddy will own your Answers and Tutorials. Your hereby assign and agree to assign to StudyDaddy all right, title and interest in and to your Answers and Tutorials. At the same time, StudyDaddy grants you a nonexclusive, non-transferable, revocable, limited license to use and distribute your own Answers and Tutorials, for as long as StudyDaddy allows and unless and until StudyDaddy requests you to cease such use and/or distribution. Subject to the foregoing, you continue to have the right to use your Answers and Tutorials in any way you choose. You waive any and all rights of privacy, publicity, or any other rights of a similar nature in connection with the use of the Answers and Tutorials, or of your name, personality, likeness, image or voice in connection with offering, delivering, marketing, promoting, demonstrating and selling your Answers and Tutorials, or any advertising or publicity relating thereto. You understand and agree that if you delete your account, it may not be possible to completely delete that content from StudyDaddy’s records, and that StudyDaddy will retain ownership of your Answers and Tutorials and your Answers and Tutorials will remain viewable elsewhere as part of the StudyDaddy and to the extent that they were downloaded or stored by other Users.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>In addition to the obligations applicable to all Users, you agree to the below terms if you sign up as a Tutor through the StudyDaddy.
+                              </p>
+                           </div>
+                           <div class="listing">
+                            <div>
+                              <p class="faqIco fade">You will receive proposals from tutors to complete your assignment. Chat with the tutors who applied for your order, discuss their educational background, professional experience, and writing style.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You have the required qualifications, credentials and expertise to offer answers, instruction and materials, and that any credentials you post are accurate, truthful, complete, and not misleading;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will not use the StudyDaddy for any business other than for providing tutoring, teaching and instructional services to registered Users;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will respond to Users seeking your services in a timely fashion, so as to ensure quality of service to Users;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You will not submit any false or misleading answers or information, or submit any proposal with a price that you do not intend to honor;</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You can only create one account with us and may not transfer or sell your account to anyone else. Creating multiple accounts is forbidden. Duplicate accounts will be permanently banned.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not and you agree that you will not share personal contacts. This includes your first and last name, email address, Skype ID, phone number, social network usernames, etc. You may not ask the student for login details to university websites. In case of any violation of these Terms, the tutor account would be immediately terminated without any compensation or refunds.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">By applying and participating in the paper writing services provided through this Website, you are representing to us that you are a qualified writer in good standing. Providing false or incomplete information will result in being barred from the system and/or withholding of all payments due to the writer, under these Terms.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not and you agree that you will not advertise any external homework assistance services via StudyDaddy platform.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">You may not boost your profile with fake reviews.</p>
+                           </div>
+                           <div>
+                              <p class="faqIco fade">Do not apply to the question if you are unable to provide the quality answer in time. Your StudyDaddy account can be blocked due to a large amount of refunds.</p>
+                           </div>
+                           
+                           
+                           </div>
+                           <p class="p-5-0">Due to the infraction of regulations, your account would be suspended or banned.</p>
+                           <p class="p-5-0">If you’ve been suspended, you will no longer be able to bid on any more questions. You can finish answering and collect payment for any remaining active questions, but will no longer be able to apply to more questions.</p>
+                           <p class="p-5-0">Bans are permanent suspensions, and are given to tutors who don’t meet the expectations of the platform. Typically, bans are given to new tutors who prove to not be a good fit or established tutors who have committed repeat offenses.</p>
+                           <p class="p-5-0">If banned, your remaining tutor balance would be withheld to cover liability costs for dissatisfied students and damage done to StudyDaddy’s reputation.</p>
+                           <p class="p-5-0">StudyDaddy may conduct certain verification processes for Tutors to sign up on the Services.</p>
+                           <div class="p-15-0">
+                              <p class="f-s-26"> Warranty Disclaimer</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>StudyDaddy does not make any representations or warranties concerning any content contained in or accessed through the Services, and we will not be responsible or liable for the accuracy, copyright compliance, legality, or decency of material contained in or accessed through the Services. We make no representations or warranties regarding suggestions or recommendations of services or products offered or purchased through the Services. Any Content or Services purchased or offered (whether or not following such recommendations and suggestions) through the Services are provided “AS-IS” and without any warranty of any kind from StudyDaddy or others. THE SERVICES AND CONTENT ARE PROVIDED ON AN “AS-IS” BASIS, WITHOUT WARRANTIES OR ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR THAT USE OF THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>STUDYDADDY CANNOT GUARANTEE AND DOES NOT PROMISE ANY SPECIFIC RESULTS FROM USE OF THE SITE. NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM STUDYDADDY OR THE SITE SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THESE TERMS. YOU AGREE THAT YOUR USE OF THE SITE AND THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, STUDYDADDY AND EACH OF ITS ADVERTISERS, LICENSORS, SUPPLIERS, OFFICERS, DIRECTORS, INVESTORS, EMPLOYEES, AGENTS, SERVICE PROVIDERS AND OTHER CONTRACTORS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED IN CONNECTION WITH THE SITE AND YOUR USE THEREOF.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>STUDYDADDY MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITES CONTENT, THE CONTENT OF ANY SITE LINKED TO THE SITE, CONTRIBUTIONS, INFORMATION OR ANY OTHER ITEMS OR MATERIALS ON THE SITE OR LINKED TO BY THE SITE. STUDYDADDY ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (A) ERRORS, MISTAKES OR INACCURACIES OF CONTENT AND MATERIALS, (B) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE OR THE SERVICES, (C) ANY UNAUTHORIZED ACCESS TO OR USE OF STUDYDADDY SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN, (D) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (E) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE, WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (F) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>SOME STATES OR JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION OF CERTAIN WARRANTIES, OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF YOU RESIDE IN ONE OF THESE STATES OR JURISDICTIONS, THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY TO YOU</p>
+                           </div>
+                           <div class="p-15-0">
+                              <p class="f-s-26"> Limitation on Liability</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>IN NO EVENT SHALL STUDYDADDY OR ANY OF ITS EMPLOYEES, AGENTS, SERVICE PROVIDERS ADVERTISERS, LICENSORS, SUPPLIERS, OFFICERS, DIRECTORS, INVESTORS AND OTHER CONTRACTORS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, CONSEQUENTIAL, INCIDENTAL, SPECIAL OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT DAMAGES ARISING FROM YOUR USE OF THE SITE, CONTRIBUTIONS, MATERIALS OR ANY OTHER CONTENT THEREIN. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED IN THESE TERMS, STUDYDADDY LIABILITY TO YOU IN RESPECT OF ANY LOSS OR DAMAGE SUFFERED BY YOU AND ARISING OUT OF OR IN CONNECTION WITH THESE TERMS, WHETHER IN CONTRACT, TORT OR FOR BREACH OF STATUTORY DUTY OR IN ANY OTHER WAY SHALL NOT EXCEED THE AMOUNT PAID BY YOU TO STUDYDADDY IN THE SIX MONTHS, OR $350, WHICHEVER IS GREATER. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU AND YOU MAY HAVE ADDITIONAL RIGHTS. IN THAT CASE, STUDYDADDY LIABILITY WILL BE LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. THE EXCLUSIONS AND LIMITATIONS OF LIABILITY IN THESE TERMS OF USE WILL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY. THIS SECTION SHALL SURVIVE ANY EXPIRATION OR TERMINATION OF YOUR RELATIONSHIP WITH STUDYDADDY. </p>
+                           </div>
+                           <div class="p-15-0">
+                              <p class="f-s-26"> GOVERNING LAW</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>The laws of the Nicosia, Cyprus, excluding its conflicts of law rules, govern this Agreement and your use of the Service. Your use of the Service may also be subject to other local, state, national, or international laws. To the extent that any action relating to any dispute hereunder is permitted to be brought in a court of law, such action will be subject to the exclusive jurisdiction of the state and federal courts located in Cyprus County, Nicosia, and you hereby irrevocably submit to personal jurisdiction in such courts, and waive any defense of inconvenient forum.</p>
+                           </div>
+                           <div class="p-15-0">
+                              <p class="f-s-26"> Contact Information</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>If you have any questions regarding these Terms of Use, please contact us at support@studydaddy.com. If you have any other questions, contact information is available at the Contact page on the Site.</p>
+                           </div>
+                           <div class="p-5-0">
+                              <p>StudyDaddy.com is owned and operated by Worbert Limited. 20 Christou Tsiarta Elma 2, 22, 1077, Nicosia, Cyprus. </p>
+                           </div>
+                        
+                        </div>
+                      
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="p-t-0 m-t-30">
+        {% include 'partials/footer.html' %} 
+    </div>
+      <script src="/static/js/jQuery.js"></script>
+      <script src="/static/js/freelance.js"></script>
+      <script>
+         function toogleSearch()
+         {
+             $( ".search" ).toggleClass( "searchtransition" )
+             $( ".search-mobile" ).toggleClass( "searchtransition" )
+         
+             
+         }
+         
+         window.onscroll = ()=>{
+         
+             
+             if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40)
+             {
+                 $("header").addClass("headerBg")
+             }
+         
+             else
+             {
+                 $("header").removeClass("headerBg")
+         
+             }
+           }
+           if(screen.width > 888)
+           {
+               $(".mobile").addClass("hide-m")
+           }
+           else
+           {
+               $(".mobile").removeClass("hide-m")
+         
+           }
+         
+           setInterval(()=>{
+             if(screen.width > 888)
+             {
+                 $(".mobile").addClass("hide-m")
+             }
+             else
+             {
+                 $(".mobile").removeClass("hide-m")
+         
+             }
+           }, 1000)
+      </script>
+   </body>
+</html>
